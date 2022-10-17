@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNet.Identity
+@using WebServices.Models
+
+@model JsonCanica.JsonPwdEmpleado
+@*@if (Request.IsAuthenticated)*@
+@if (JsonCanica.ResponseLogin.Descripcion.ToUpper().Contains("DATOS SON CORRECTOS"))
+{
+  using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+  {
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            @Html.ActionLink("Hola " + JsonCanica.JsonPwdEmpleado.Usuario.Split('.')[0].ToUpper() + " " + JsonCanica.JsonPwdEmpleado.Usuario.Split('.')[1].ToUpper() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+          </li>
+            <li>@Html.ActionLink("Cerrar sesión", "Login", "Account", routeValues :null,htmlAttributes: new { id = "loginClose" })</li>
+        </ul>
+  }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+      @*<li>@Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+      <li>@Html.ActionLink("Iniciar sesión", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

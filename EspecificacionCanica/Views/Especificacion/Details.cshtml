@@ -1,0 +1,165 @@
+﻿@model EspecificacionCanica.Models.Canica
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="jumbotron" style="background-color:#DBB95C!important;font-size:10pt!important">
+  <div class="row">
+    <div class="col-md-2">
+      <img src="~/Resources/logo2Artboard 1Glasfirma.png" style="width:80%!important;height:80%!important " />
+    </div>
+    <div class=" col-md-9">
+      <div class="row" style="color:white;font-weight:bold; text-align:center">
+        <div class="col-md-9">
+          <h2>ESPECIFICACIÓN DE PRODUCTO</h2>
+        </div>
+        <div class="col-md-3">
+          <h2>4-CM-05</h2>
+        </div>
+      </div>
+      @*<hr />*@
+      <div class="row especificacion" style="text-align:center!important;">
+        <div class="col-md-2">
+          @Html.DisplayNameFor(model => model.Cliente)
+        </div>
+        <div class="col-md-3">
+          @Html.DisplayNameFor(model => model.Modelo)
+        </div>
+        <div class="col-md-2">
+          @Html.DisplayNameFor(model => model.Medida)
+        </div>
+        <div class="col-md-2">
+          @Html.DisplayNameFor(model => model.Calibracion)
+
+        </div>
+        <div class="col-md-3">
+          @Html.DisplayNameFor(model => model.CodigoSAP)
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          @Html.DisplayFor(model => model.Cliente)
+        </div>
+        <div class="col-md-3">
+          @Html.DisplayFor(model => model.Modelo)
+        </div>
+        <div class="col-md-2">
+          @Html.DisplayFor(model => model.Medida)
+        </div>
+        <div class="col-md-2">
+          @Html.DisplayFor(model => model.Calibracion)
+
+        </div>
+        <div class="col-md-3">
+          @Html.DisplayFor(model => model.CodigoSAP)
+        </div>
+      </div>
+
+      @*<hr />*@
+      @*<div class="row especificacion" style="text-align:center!important;">
+        <div class="col-md-2" style="visibility:hidden!important  ">
+
+        </div>
+        <div class="col-md-3">
+          @Html.LabelFor(model => model.NombreCliente, htmlAttributes: new { @class = "control-label" })
+        </div>
+        <div class="col-md-2">
+          @Html.LabelFor(model => model.Empaque , htmlAttributes: new { @class = "control-label" })
+        </div>
+        <div class="col-md-2">
+          @Html.LabelFor(model => model.ColorMalla, htmlAttributes: new { @class = "control-label" })
+        </div>
+        <div class="col-md-3">
+          @Html.LabelFor(model => model.NumArticulo, htmlAttributes: new { @class = "control-label" })
+        </div>
+      </div>*@
+    </div>
+  </div>
+
+
+
+  <div>
+    <h4>Canica</h4>
+    <hr />
+    <dl class="dl-horizontal">
+      <dt>
+        @*   @Html.DisplayNameFor(model => model.Cliente)*@
+      </dt>
+
+      <dd>
+        @*@Html.DisplayFor(model => model.Cliente)*@
+      </dd>
+
+      <dt>
+        @*@Html.DisplayNameFor(model => model.Modelo)*@
+      </dt>
+
+      <dd>
+        @*@Html.DisplayFor(model => model.Modelo)*@
+      </dd>
+
+      <dt>
+        @Html.DisplayNameFor(model => model.Medida)
+      </dt>
+
+      <dd>
+        @Html.DisplayFor(model => model.Medida)
+      </dd>
+
+      <dt>
+        @Html.DisplayNameFor(model => model.Calibracion)
+      </dt>
+
+      <dd>
+        @Html.DisplayFor(model => model.Calibracion)
+      </dd>
+
+      <dt>
+        @Html.DisplayNameFor(model => model.CodigoSAP)
+      </dt>
+
+      <dd>
+        @Html.DisplayFor(model => model.CodigoSAP)
+      </dd>
+
+      <dt>
+        @Html.DisplayNameFor(model => model.NombreCliente)
+      </dt>
+
+      <dd>
+        @Html.DisplayFor(model => model.NombreCliente)
+      </dd>
+
+      <dt>
+        @Html.DisplayNameFor(model => model.Empaque)
+      </dt>
+
+      <dd>
+        @Html.DisplayFor(model => model.Empaque)
+      </dd>
+
+      <dt>
+        @Html.DisplayNameFor(model => model.ColorMalla)
+      </dt>
+
+      <dd>
+        @Html.DisplayFor(model => model.ColorMalla)
+      </dd>
+
+      <dt>
+        @Html.DisplayNameFor(model => model.NumArticulo)
+      </dt>
+
+      <dd>
+        @Html.DisplayFor(model => model.NumArticulo)
+      </dd>
+
+    </dl>
+  </div>
+  <p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+  </p>
