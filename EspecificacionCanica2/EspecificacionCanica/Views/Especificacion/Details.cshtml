@@ -1,0 +1,72 @@
+﻿@model EspecificacionCanica.Models.Canica
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2></h2>
+
+<div class="jumbotron" style="background-color:#DBB95C!important;font-size:10pt!important">
+    <div class="row">
+        <div class="col-md-2" style="vertical-align: central !important">
+            <img src="~/Resources/logo2Artboard 1Glasfirma.png" style="width:80%!important;height:80%!important;padding-top:45%!important " />
+        </div>
+        <div class=" col-md-10">
+            <div class="row" style="color:white;font-weight:bold; text-align:center">
+                <div class="col-md-9">
+                    <h2>ESPECIFICACIÓN DE PRODUCTO</h2>
+                </div>
+                <div class="col-md-3">
+                    <h2>4-CM-05</h2>
+                </div>
+            </div>
+            <table class="table ">
+                <thead>
+                    <tr style="background-color:white!important;border:1px solid black!important">
+                        <th> @Html.DisplayNameFor(model => model.Cliente)</th>
+                        <th> @Html.DisplayNameFor(model => model.Modelo)</th>
+                        <th> @Html.DisplayNameFor(model => model.Medida)</th>
+                        <th> @Html.DisplayNameFor(model => model.Calibracion)</th>
+                        <th> @Html.DisplayNameFor(model => model.CodigoSAP)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="inicio">@Html.DisplayFor(model => model.Cliente)</td>
+                        <td>@Html.DisplayFor(model => model.Modelo)</td>
+                        <td>@Html.DisplayFor(model => model.Medida)</td>
+                        <td>@Html.DisplayFor(model => model.Calibracion)</td>
+                        <td>@Html.DisplayFor(model => model.CodigoSAP)</td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table">
+                <thead>
+                    <tr style="background-color:white!important;border:1px solid black!important">
+                        <th> @Html.DisplayNameFor(model => model.NombreCliente)</th>
+                        <th> @Html.DisplayNameFor(model => model.Empaque)</th>
+                        <th> @Html.DisplayNameFor(model => model.ColorMalla)</th>
+                        <th> @Html.DisplayNameFor(model => model.NumArticulo)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                       
+                        <td class="inicio">@Html.DisplayFor(model => model.NombreCliente )</td>
+                        <td>@Html.DisplayFor(model => model.Empaque )</td>
+                        <td>@Html.DisplayFor(model => model.ColorMalla)</td>
+                        <td>@Html.DisplayFor(model => model.NumArticulo)</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

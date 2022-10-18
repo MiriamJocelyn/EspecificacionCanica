@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -274,7 +275,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\WebS\WebServices\WebServices\WebServices.csproj">
+    <ProjectReference Include="..\..\WebServices\WebServices\WebServices\WebServices.csproj">
       <Project>{7384c870-25d9-4b19-93fe-26828f51893b}</Project>
       <Name>WebServices</Name>
     </ProjectReference>

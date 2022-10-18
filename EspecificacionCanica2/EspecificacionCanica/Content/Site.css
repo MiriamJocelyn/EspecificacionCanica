@@ -37,3 +37,14 @@ textarea {
    border-style: outset!important;
    background-color:white!important;
 }
+table thead tr th {
+    border-right: 1px solid black !important;
+    border-bottom: 2px solid black !important;
+}
+table tbody tr td {
+    border-right: 1px solid black !important;
+    border-bottom: 1px solid black !important;
+}
+table tbody tr .inicio {
+    border-left: 1px solid black !important;
+}

@@ -21,13 +21,23 @@ namespace EspecificacionCanica.Controllers
             Canica c = new Canica();
             c.Cliente = "ETs Jacques Ferry et Compagnie";
             c.Modelo = "Canica de vidrio Mezcla Magos";
-            return View();
+            c.Medida = "20pzs(s)/16mm(+)1pza(s)/25mm";
+            c.Calibracion = "NO";
+            c.CodigoSAP = "CECAO163466";
+
+            c.NombreCliente = "COLLECTION WIZARD";
+            c.Empaque = "20 Redes/Display/4 Display/Caja";
+            c.ColorMalla = "CMEMAL002 NEGRO";
+            c.NumArticulo = "303494";
+
+
+            return View(c);
         }
 
         // GET: Especificacion/Create
         public ActionResult Create()
         {
-            
+
             return View();
         }
 
