@@ -69,7 +69,7 @@ textarea {
 .jumbInicio table tbody tr td {
     border: 1px solid #395095 !important;
     font-size: 10pt !important;
-   background-color:white!important;
+    background-color:white!important;
     /*width:100%!important;*/
 }
 
@@ -121,4 +121,28 @@ textarea {
     font-weight:bold !important;
      text-align:justify!important;
 }
-/*.tableBote*/
+
+
+.tableGeneral thead tr th {
+    color: white !important;
+    border: 1px solid #395095 !important;
+    font-size: 10pt !important;
+    background-color:#8AA5D6!important;
+    font-weight:bold!important;
+    text-align :center!important;
+}
+
+.tableGeneral tbody tr td {
+    border: 1px solid #395095 !important;
+    font-size: 10pt !important;
+    background-color:white!important;
+    
+    /*width:100%!important;*/
+}
+
+
+.partial li a {
+color:white !important;
+font-weight:bold!important ;
+
+}

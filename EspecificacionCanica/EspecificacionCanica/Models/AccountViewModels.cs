@@ -48,12 +48,12 @@ namespace EspecificacionCanica.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage="Usuario es obligatorio")]
         [Display(Name = "Usuario")]
   
         public string Usuario { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Contraseña es obligatorio")]
         [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Contrasenia { get; set; }

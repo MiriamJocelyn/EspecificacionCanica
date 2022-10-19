@@ -1,0 +1,76 @@
+﻿@using EspecificacionCanica.Models
+@model EspecificacionCanica.Models.Busqueda
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script>
+
+  $(document).ready(function () {
+
+    $("#Clientes").change(function () {
+      var a = $("#Clientes Option:selected").text();
+      $("#NombreCliente").text(a)
+    })
+
+    $("#btnBuscarProducto").click(function () {
+      var laURLDeLaVista = '@Url.Action("Prueba", "Especificacion")';
+      //$('#resultado').html(response);
+      $.ajax({
+        cache: false,
+        async: true,
+        type: "GET",
+        url: laURLDeLaVista,
+        data: {},
+        success: function (response) {
+          //$('#resultado').html('');
+          $('#resultado').html(response);
+        }
+      });
+    })
+
+  });
+
+</script>
+
+@using (Html.BeginForm())
+{
+    <hr />
+    <div class="row">
+
+      <div class="col-md-4">
+        <input id="txtCliente" type="text" class="form-control" placeholder=" Buscar Cliente" />
+      </div>
+      <div class="col-md-1">
+        <input type="submit" value="Buscar" class="btn btn-info" />
+      </div>
+      <div class="col-md-3">
+        @Html.DropDownList("Clientes", ViewBag.Clientes as SelectList, new { @class = "form-control" })
+
+      </div>
+      <div class=" col-md-1">
+        <input type="submit" value="Cargar" class="btn btn-info " />
+      </div>
+
+    </div>
+
+    <div class="row" style="margin-top:2%!important">
+      <div class="col-md-3">
+        <label id="NombreCliente">Prueba</label>
+      </div>
+
+      <div class="col-md-3">
+        @Html.DropDownList("Articulos", ViewBag.Articulos as SelectList, new { @class = "form-control" })
+      </div>
+      <div class="col-md-1">
+        <input type="button" value="Buscar Producto" class="btn btn-info" id="btnBuscarProducto" />
+      </div>
+    </div>
+
+    <div id="resultado"> @* En este div se agrega la partial view no borrarlo. *@
+
+    </div>
+
+
+}

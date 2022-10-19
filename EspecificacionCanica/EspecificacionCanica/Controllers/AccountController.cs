@@ -11,10 +11,12 @@ using Microsoft.Owin.Security;
 using EspecificacionCanica.Models;
 using WebServices.Models;
 
+using System.Web.Security;
+
 namespace EspecificacionCanica.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : Controller 
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -22,7 +24,7 @@ namespace EspecificacionCanica.Controllers
         public AccountController()
         {
 
-           
+
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -60,8 +62,7 @@ namespace EspecificacionCanica.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            JsonCanica.ResponseLogin.Descripcion = "";
-            JsonCanica.JsonPwdEmpleado.Usuario = "";
+            Session["usuario"] = null;
             return View();
         }
 
@@ -77,20 +78,28 @@ namespace EspecificacionCanica.Controllers
                 return View(model);
             }
             JsonCanica.JsonPwdEmpleado jEmpleado = new JsonCanica.JsonPwdEmpleado();
-            
-            JsonCanica.JsonPwdEmpleado.Usuario = model.Usuario;
+
+            jEmpleado.Usuario = model.Usuario;
             jEmpleado.Contraseña = model.Contrasenia;
+
+
+
 
             ProcesoCanica response = new ProcesoCanica();
             JsonCanica.ResponseLogin resp = new JsonCanica.ResponseLogin();
             resp = response.ResponseLogin(jEmpleado);
-            if (JsonCanica.ResponseLogin.Descripcion.ToUpper().Contains("DATOS SON CORRECTOS"))
+            if (resp.Descripcion.ToUpper().Contains("DATOS SON CORRECTOS"))
             {
-                return RedirectToAction("Create", "Especificacion");
+                string usuario = jEmpleado.Usuario;
+                Session["usuario"] = usuario;
+                return RedirectToAction("Index", "Especificacion");
             }
-            else {
-               
+            else
+            {
+                Session["usuario"] = null;
+                ModelState.AddModelError("", resp.Descripcion.ToUpper());
             }
+            
             return View(model);
         }
 
