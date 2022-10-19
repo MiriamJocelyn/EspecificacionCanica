@@ -121,6 +121,9 @@
   <data name="fondoGlas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fondoGlas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="img0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\img0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo2Artboard_1Glasfirma" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo2Artboard 1Glasfirma.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

@@ -73,6 +73,16 @@ namespace EspecificacionCanica.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap img0 {
+            get {
+                object obj = ResourceManager.GetObject("img0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo2Artboard_1Glasfirma {
             get {
                 object obj = ResourceManager.GetObject("logo2Artboard_1Glasfirma", resourceCulture);

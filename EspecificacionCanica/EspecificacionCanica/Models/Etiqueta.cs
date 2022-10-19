@@ -7,6 +7,5 @@ namespace EspecificacionCanica.Models
 {
     public class Etiqueta
     {
-        public string CodAdherible  { get; set; }
     }
 }

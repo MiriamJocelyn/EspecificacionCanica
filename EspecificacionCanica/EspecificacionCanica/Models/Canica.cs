@@ -28,7 +28,7 @@ namespace EspecificacionCanica.Models
         [DisplayName("Num de artículo cliente:")]
         public string NumArticulo { get; set; }
 
-        public Etiqueta  etiqueta { get; set; }
+        public EtiquetaBote  etiquetaBote { get; set; }
         public Display  display { get; set; }
         public Caja caja { get; set; }
     }

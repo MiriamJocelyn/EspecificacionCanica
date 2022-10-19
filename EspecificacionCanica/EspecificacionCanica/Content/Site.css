@@ -24,7 +24,7 @@ textarea {
 }
 
 #loginForm {
-    margin-left:-20%!important;
+    margin-left: -20% !important;
     margin: 0 auto;
     width: 393px;
     height: 601px;
@@ -33,18 +33,92 @@ textarea {
     margin-top: 50px;
 }
 
+.jumbInicio {
+    background-color: #DBB95C !important;
+    */
+    /*background-color: white !important;*/
+    font-size: 9pt !important;
+}
+
+    .jumbInicio thead tr {
+        /*background-color: #DBB95C !important;*/
+        background-color: white !important;
+        border: 1px solid black !important;
+        color: white;
+        font-size: 11pt !important;
+    }
+
+    .jumbInicio h2 {
+        color: white !important;
+        /*font-weight:bold; text-align:center*/
+    }
+
 .especificacion div {
-   border-style: outset!important;
+    border-style: outset !important;
+    background-color: white !important;
+}
+
+.jumbInicio table thead tr th {
+    color: white !important;
+    border: 1px solid #395095 !important;
+    font-size: 10pt !important;
+    background-color:#8AA5D6!important;
+    font-weight:bold!important;
+}
+
+.jumbInicio table tbody tr td {
+    border: 1px solid #395095 !important;
+    font-size: 10pt !important;
    background-color:white!important;
+    /*width:100%!important;*/
 }
-table thead tr th {
-    border-right: 1px solid black !important;
-    border-bottom: 2px solid black !important;
+
+.jumbInicio table tbody tr .inicio {
+    border-left: 1px solid #395095 !important;
 }
-table tbody tr td {
-    border-right: 1px solid black !important;
-    border-bottom: 1px solid black !important;
+
+.card-header {
+    /*background-color: #8AA5D6 !important;*/
+    background-color: #89B43F !important;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    /*border-radius:8px!important;*/
+    text-align: center;
+    cursor: pointer;
 }
-table tbody tr .inicio {
-    border-left: 1px solid black !important;
+
+    .card-header .btn-link {
+        font-weight: bold !important;
+        color: white !important;
+        font-size:12pt !important;
+    }
+
+.card-body {
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+    /*border-radius:8px!important;*/
+    border: 1px solid #8AA5D6;
+    margin-top: -10px;
 }
+
+    .card-body div {
+        padding-top: 10px !important;
+    }
+
+.tableBote {
+    border: 1px solid black !important;
+    width: 95% !important;
+}
+
+    .tableBote tbody tr td {
+        border: 1px solid  #395095 !important;
+        width: 50% !important;
+        text-align:center!important;
+    }
+.tituloTa {
+    color:white!important;
+    background-color: #8AA5D6!important;
+    font-weight:bold !important;
+     text-align:justify!important;
+}
+/*.tableBote*/

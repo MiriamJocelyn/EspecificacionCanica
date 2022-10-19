@@ -180,6 +180,7 @@
     <Compile Include="Models\Canica.cs" />
     <Compile Include="Models\Display.cs" />
     <Compile Include="Models\Etiqueta.cs" />
+    <Compile Include="Models\EtiquetaBote.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -201,6 +202,7 @@
     <None Include="Resources\raz.png" />
     <None Include="Resources\fondoGlas.png" />
     <None Include="Resources\logo2Artboard 1Glasfirma.png" />
+    <None Include="Resources\img0.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

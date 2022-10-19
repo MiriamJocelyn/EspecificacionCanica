@@ -30,7 +30,14 @@ namespace EspecificacionCanica.Controllers
             c.ColorMalla = "CMEMAL002 NEGRO";
             c.NumArticulo = "303494";
 
-
+            EtiquetaBote etiquetaBote = new EtiquetaBote();
+            etiquetaBote.CodSapAdherible = "CMEETQ080";
+            etiquetaBote.CodSapTrasero = "CMEETQ063";
+            etiquetaBote.CodBarrasTrasero = "603827436344";
+            etiquetaBote.CodSapBote = "CMEVIT021";
+            etiquetaBote.CodSapEsponja = "CMEESP001";
+            etiquetaBote.CodSapPolipack = "CMEPOL002";
+            c.etiquetaBote = etiquetaBote;
             return View(c);
         }
 
