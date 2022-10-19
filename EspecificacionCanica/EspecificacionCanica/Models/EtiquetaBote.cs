@@ -21,11 +21,15 @@ namespace EspecificacionCanica.Models
         public string CodSapEsponja { get; set; }
         [DisplayName("Código SAP Polipack:")]
         public string CodSapPolipack { get; set; }
+        public string Tapa { get; set; }
         //[DisplayName("Observaciones:")]
         public string Observaciones { get; set; }
         public string imgPrincipal { get; set; }
+        public string descImgPrincipal { get; set; }
+        [DisplayName("Frente")]
         public string imgFrente { get; set; }
         public string descImgFrente { get; set; }
+        [DisplayName("Vuelta")]
         public int imgVuelta { get; set; }
         public string descImgVuelta { get; set; }
     }

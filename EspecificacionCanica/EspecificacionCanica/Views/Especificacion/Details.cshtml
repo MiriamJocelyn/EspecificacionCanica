@@ -7,160 +7,175 @@
 <h2></h2>
 
 <div class="jumbotron jumbInicio">
-  <div class="row">
-    <div class="col-md-2" style="vertical-align: central !important">
-      <img src="~/Resources/logo2Artboard 1Glasfirma.png" style="width:80%!important;height:80%!important;padding-top:45%!important " />
-    </div>
-    <div class=" col-md-10">
-      <div class="row" style="color:white;font-weight:bold; text-align:center">
-        <div class="col-md-9">
-          <h2>ESPECIFICACIÓN DE PRODUCTO</h2>
+    <div class="row">
+        <div class="col-md-2" style="vertical-align: central !important">
+            <img src="~/Resources/logo2Artboard 1Glasfirma.png" style="width:80%!important;height:80%!important;padding-top:45%!important " />
         </div>
-        <div class="col-md-3">
-          <h2>4-CM-05</h2>
+        <div class=" col-md-10">
+            <div class="row" style="color:white;font-weight:bold; text-align:center">
+                <div class="col-md-9">
+                    <h2>ESPECIFICACIÓN DE PRODUCTO</h2>
+                </div>
+                <div class="col-md-3">
+                    <h2>4-CM-05</h2>
+                </div>
+            </div>
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th> @Html.DisplayNameFor(model => model.Cliente)</th>
+                        <th> @Html.DisplayNameFor(model => model.Modelo)</th>
+                        <th> @Html.DisplayNameFor(model => model.Medida)</th>
+                        <th> @Html.DisplayNameFor(model => model.Calibracion)</th>
+                        <th> @Html.DisplayNameFor(model => model.CodigoSAP)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="inicio">@Html.DisplayFor(model => model.Cliente)</td>
+                        <td>@Html.DisplayFor(model => model.Modelo)</td>
+                        <td>@Html.DisplayFor(model => model.Medida)</td>
+                        <td>@Html.DisplayFor(model => model.Calibracion)</td>
+                        <td>@Html.DisplayFor(model => model.CodigoSAP)</td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th> @Html.DisplayNameFor(model => model.NombreCliente)</th>
+                        <th> @Html.DisplayNameFor(model => model.Empaque)</th>
+                        <th> @Html.DisplayNameFor(model => model.ColorMalla)</th>
+                        <th> @Html.DisplayNameFor(model => model.NumArticulo)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="inicio">@Html.DisplayFor(model => model.NombreCliente)</td>
+                        <td>@Html.DisplayFor(model => model.Empaque)</td>
+                        <td>@Html.DisplayFor(model => model.ColorMalla)</td>
+                        <td>@Html.DisplayFor(model => model.NumArticulo)</td>
+
+                    </tr>
+                </tbody>
+            </table>
         </div>
-      </div>
-      <table class="table ">
-        <thead>
-          <tr >
-            <th> @Html.DisplayNameFor(model => model.Cliente)</th>
-            <th> @Html.DisplayNameFor(model => model.Modelo)</th>
-            <th> @Html.DisplayNameFor(model => model.Medida)</th>
-            <th> @Html.DisplayNameFor(model => model.Calibracion)</th>
-            <th> @Html.DisplayNameFor(model => model.CodigoSAP)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="inicio">@Html.DisplayFor(model => model.Cliente)</td>
-            <td>@Html.DisplayFor(model => model.Modelo)</td>
-            <td>@Html.DisplayFor(model => model.Medida)</td>
-            <td>@Html.DisplayFor(model => model.Calibracion)</td>
-            <td>@Html.DisplayFor(model => model.CodigoSAP)</td>
-
-          </tr>
-        </tbody>
-      </table>
-      <table class="table">
-        <thead>
-          <tr >
-            <th> @Html.DisplayNameFor(model => model.NombreCliente)</th>
-            <th> @Html.DisplayNameFor(model => model.Empaque)</th>
-            <th> @Html.DisplayNameFor(model => model.ColorMalla)</th>
-            <th> @Html.DisplayNameFor(model => model.NumArticulo)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="inicio">@Html.DisplayFor(model => model.NombreCliente)</td>
-            <td>@Html.DisplayFor(model => model.Empaque)</td>
-            <td>@Html.DisplayFor(model => model.ColorMalla)</td>
-            <td>@Html.DisplayFor(model => model.NumArticulo)</td>
-
-          </tr>
-        </tbody>
-      </table>
     </div>
-  </div>
 </div>
 
 
 
 
 <div class="accordion" id="accordionExample">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h5 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          ETIQUETA
-        </button>
-      </h5>
-    </div>
-
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-
-          </div>
-          <div class="col-md-6">
-            <table class="tableBote">
-              <tbody>
-                <tr>
-                  <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapAdherible)</td>
-                  <td>@Html.DisplayFor(model => model.etiquetaBote.CodSapAdherible)</td>
-                </tr>
-                <tr>
-                  <td  class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapTrasero)</td>
-                  <td>@Html.DisplayFor(model => model.etiquetaBote.CodSapTrasero)</td>
-                </tr>
-                <tr>
-                  <td  class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodBarrasTrasero)</td>
-                  <td>@Html.DisplayFor(model => model.etiquetaBote.CodBarrasTrasero)</td>
-                </tr>
-                <tr>
-                  <td  class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapBote)</td>
-                  <td>@Html.DisplayFor(model => model.etiquetaBote.CodSapBote)</td>
-                </tr>
-                <tr>
-                  <td  class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapEsponja)</td>
-                  <td>@Html.DisplayFor(model => model.etiquetaBote.CodSapEsponja)</td>
-                </tr>
-                <tr>
-                  <td  class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapPolipack)</td>
-                  <td>@Html.DisplayFor(model => model.etiquetaBote.CodSapPolipack)</td>
-                </tr>
-                <tr>
-                  <td colspan="2">LA TAPA DEL BOTE DEBE SER BLANCA</td>
-                </tr>
-                <tr>
-                  <td colspan="2">ASPECTOS</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <table>
-              
-            </table>
-          </div>
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    ETIQUETA
+                </button>
+            </h5>
         </div>
-      </div>
+
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="~/Resources/img0.png" style=" height:70%!important ">
+                    </div>
+                    <div class="col-md-6">
+                        <table class="tableBote">
+                            <tbody>
+                                <tr>
+                                    <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapAdherible)</td>
+                                    <td>@Html.DisplayFor(model => model.etiquetaBote.CodSapAdherible)</td>
+                                </tr>
+                                <tr>
+                                    <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapTrasero)</td>
+                                    <td>@Html.DisplayFor(model => model.etiquetaBote.CodSapTrasero)</td>
+                                </tr>
+                                <tr>
+                                    <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodBarrasTrasero)</td>
+                                    <td>@Html.DisplayFor(model => model.etiquetaBote.CodBarrasTrasero)</td>
+                                </tr>
+                                <tr>
+                                    <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapBote)</td>
+                                    <td>@Html.DisplayFor(model => model.etiquetaBote.CodSapBote)</td>
+                                </tr>
+                                <tr>
+                                    <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapEsponja)</td>
+                                    <td>@Html.DisplayFor(model => model.etiquetaBote.CodSapEsponja)</td>
+                                </tr>
+                                <tr>
+                                    <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapPolipack)</td>
+                                    <td>@Html.DisplayFor(model => model.etiquetaBote.CodSapPolipack)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">@Html.DisplayFor(model => model.etiquetaBote.Tapa)</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">@Html.DisplayFor(model => model.etiquetaBote.Observaciones)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table" style="width:95%!important ">
+                            <thead>
+                                <tr>
+                                    <th >@Html.DisplayNameFor(model => model.etiquetaBote.imgFrente)</th>
+                                    <th >@Html.DisplayNameFor(model => model.etiquetaBote.imgVuelta)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><img src="~/Resources/img0.png" style="width:100%!important"></td>
+                                    <td><img src="~/Resources/img0.png" style="width:100%!important"></td>
+                                </tr>
+                                <tr>
+                                    <td>@Html.DisplayFor(model => model.etiquetaBote.descImgFrente)</td>
+                                    <td>@Html.DisplayFor(model => model.etiquetaBote.descImgVuelta)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </button>
-      </h5>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Collapsible Group Item #2
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+        </div>
     </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Collapsible Group Item #3
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </button>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
 </div>
 
 
 
 
 <p>
-  @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-  @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>

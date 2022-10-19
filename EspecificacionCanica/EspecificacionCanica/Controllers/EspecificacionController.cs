@@ -37,6 +37,11 @@ namespace EspecificacionCanica.Controllers
             etiquetaBote.CodSapBote = "CMEVIT021";
             etiquetaBote.CodSapEsponja = "CMEESP001";
             etiquetaBote.CodSapPolipack = "CMEPOL002";
+            etiquetaBote.Tapa = "LA TAPA DEL BOTE DEBE DE SER BLANCA";
+            etiquetaBote.Observaciones = "";
+            etiquetaBote.descImgPrincipal = "ESTE ADHERIBLE DEBERÁ ESTAR PLASTIFICADO, NO DE PAPEL.";
+            etiquetaBote.descImgFrente = "STICKER PLASTIFICADO";
+            etiquetaBote.descImgVuelta = "STICKER DE LÍNEA DE PAPEL";
             c.etiquetaBote = etiquetaBote;
             return View(c);
         }
