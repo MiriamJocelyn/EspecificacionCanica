@@ -18,6 +18,14 @@ namespace EspecificacionCanica
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+               name: "Canica",
+               url: "{controller}/{action}/{cliente}/{articulo}",
+               defaults: new { controller = "Account", action = "Login", cliente = UrlParameter.Optional,articulo=UrlParameter.Optional }
+           );
+          
+                
         }
     }
 }

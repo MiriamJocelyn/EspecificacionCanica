@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using EspecificacionCanica.Models;
-using WebServices.Models;
+//using WebServices.Models;
 
 using System.Web.Security;
 
@@ -77,29 +77,41 @@ namespace EspecificacionCanica.Controllers
             {
                 return View(model);
             }
-            JsonCanica.JsonPwdEmpleado jEmpleado = new JsonCanica.JsonPwdEmpleado();
 
-            jEmpleado.Usuario = model.Usuario;
-            jEmpleado.Contraseña = model.Contrasenia;
-
-
-
-
-            ProcesoCanica response = new ProcesoCanica();
-            JsonCanica.ResponseLogin resp = new JsonCanica.ResponseLogin();
-            resp = response.ResponseLogin(jEmpleado);
-            if (resp.Descripcion.ToUpper().Contains("DATOS SON CORRECTOS"))
+            if (model.Descripcion.ToUpper().Contains("DATOS SON CORRECTOS"))
             {
-                string usuario = jEmpleado.Usuario;
+                string usuario = model.Usuario;
                 Session["usuario"] = usuario;
                 return RedirectToAction("Index", "Especificacion");
             }
             else
             {
                 Session["usuario"] = null;
-                ModelState.AddModelError("", resp.Descripcion.ToUpper());
+                ModelState.AddModelError("", model.Descripcion.ToUpper());
             }
-            
+            //JsonCanica.JsonPwdEmpleado jEmpleado = new JsonCanica.JsonPwdEmpleado();
+
+            //jEmpleado.Usuario = model.Usuario;
+            //jEmpleado.Contraseña = model.Contrasenia;
+
+
+
+
+            //ProcesoCanica response = new ProcesoCanica();
+            //JsonCanica.ResponseLogin resp = new JsonCanica.ResponseLogin();
+            //resp = response.ResponseLogin(jEmpleado);
+            //if (resp.Descripcion.ToUpper().Contains("DATOS SON CORRECTOS"))
+            //{
+            //    string usuario = jEmpleado.Usuario;
+            //    Session["usuario"] = usuario;
+            //    return RedirectToAction("Index", "Especificacion");
+            //}
+            //else
+            //{
+            //    Session["usuario"] = null;
+            //    ModelState.AddModelError("", resp.Descripcion.ToUpper());
+            //}
+
             return View(model);
         }
 

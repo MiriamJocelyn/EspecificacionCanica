@@ -63,6 +63,16 @@ namespace EspecificacionCanica.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _404 {
+            get {
+                object obj = ResourceManager.GetObject("_404", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondoGlas {
             get {
                 object obj = ResourceManager.GetObject("fondoGlas", resourceCulture);
@@ -86,6 +96,16 @@ namespace EspecificacionCanica.Properties {
         internal static System.Drawing.Bitmap logo2Artboard_1Glasfirma {
             get {
                 object obj = ResourceManager.GetObject("logo2Artboard_1Glasfirma", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sinAcceso {
+            get {
+                object obj = ResourceManager.GetObject("sinAcceso", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

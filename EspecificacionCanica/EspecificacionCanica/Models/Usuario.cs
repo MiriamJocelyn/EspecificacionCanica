@@ -5,10 +5,9 @@ using System.Web;
 
 namespace EspecificacionCanica.Models
 {
-    public class Cliente
+    public class Usuario
     {
-        public string codCliente { get; set; }
-        public string cliente { get; set; }
-
+        public string usuario { get; set; }
+        public string  status { get; set; }
     }
 }

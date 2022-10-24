@@ -60,6 +60,8 @@ namespace EspecificacionCanica.Models
 
         [Display(Name = "¿Recordar cuenta?")]
         public bool RememberMe { get; set; }
+        public int Estatus { get; set; }
+        public string Descripcion { get; set; }
     }
 
     public class RegisterViewModel

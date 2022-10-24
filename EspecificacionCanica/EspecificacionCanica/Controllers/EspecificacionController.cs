@@ -1,7 +1,9 @@
 ﻿using EspecificacionCanica.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,18 +12,30 @@ namespace EspecificacionCanica.Controllers
     public class EspecificacionController : Controller
     {
         // GET: Especificacion
-        public ActionResult Index()
+
+        public ActionResult Index(string id)
         {
+            if (id == null)
+                return RedirectToAction("Seguridad");
+            else
+                Session["usuario"] = id;
             Inicializacion();
             return View();
         }
-
+        public ActionResult Seguridad()
+        {
+            return View();
+        }
+        public ActionResult PaginaNoEncontrada()
+        {
+            return View();
+        }
         // GET: Especificacion/Details/5
         public ActionResult Details(Canica id)
         {
             if (Session["usuario"] == null)
             {
-
+                return RedirectToAction("Seguridad");
             }
 
             return View(id);
@@ -54,38 +68,6 @@ namespace EspecificacionCanica.Controllers
         public ActionResult Edit(int id)
         {
             return View();
-        }
-
-        public ActionResult Prueba(Busqueda id)
-        {
-            //id.clientes
-
-            Canica c = new Canica();
-            c.Cliente = "ETs Jacques Ferry et Compagnie";
-            c.Modelo = "Canica de vidrio Mezcla Magos";
-            c.Medida = "20pzs(s)/16mm(+)1pza(s)/25mm";
-            c.Calibracion = "NO";
-            c.CodigoSAP = "CECAO163466";
-
-            c.NombreCliente = "COLLECTION WIZARD";
-            c.Empaque = "20 Redes/Display/4 Display/Caja";
-            c.ColorMalla = "CMEMAL002 NEGRO";
-            c.NumArticulo = "303494";
-
-            EtiquetaBote etiquetaBote = new EtiquetaBote();
-            etiquetaBote.CodSapAdherible = "CMEETQ080";
-            etiquetaBote.CodSapTrasero = "CMEETQ063";
-            etiquetaBote.CodBarrasTrasero = "603827436344";
-            etiquetaBote.CodSapBote = "CMEVIT021";
-            etiquetaBote.CodSapEsponja = "CMEESP001";
-            etiquetaBote.CodSapPolipack = "CMEPOL002";
-            etiquetaBote.Tapa = "LA TAPA DEL BOTE DEBE DE SER BLANCA";
-            etiquetaBote.Observaciones = "";
-            etiquetaBote.descImgPrincipal = "ESTE ADHERIBLE DEBERÁ ESTAR PLASTIFICADO, NO DE PAPEL.";
-            etiquetaBote.descImgFrente = "STICKER PLASTIFICADO";
-            etiquetaBote.descImgVuelta = "STICKER DE LÍNEA DE PAPEL";
-            c.etiquetaBote = etiquetaBote;
-            return PartialView("Details", c);
         }
         // POST: Especificacion/Edit/5
         [HttpPost]
@@ -129,10 +111,8 @@ namespace EspecificacionCanica.Controllers
                 return View();
             }
         }
-
-        #region Funciones
-
-        protected void Inicializacion()
+        [HttpPost]
+        public ActionResult clientes(string id)
         {
             List<SelectListItem> busquedaCliente = new List<SelectListItem>();
             busquedaCliente.Add(new SelectListItem()
@@ -152,6 +132,19 @@ namespace EspecificacionCanica.Controllers
                 Value = "0"
             });
 
+            return Json(new { list = busquedaCliente, error = "" });
+        }
+
+        #region Funciones
+
+        protected void Inicializacion()
+        {
+            List<SelectListItem> busquedaCliente = new List<SelectListItem>();
+            busquedaCliente.Add(new SelectListItem()
+            {
+                Text = "Seleccionar Cliente",
+                Value = "0"
+            });
 
             ViewBag.Clientes = busquedaCliente;
 
@@ -165,11 +158,6 @@ namespace EspecificacionCanica.Controllers
             ViewBag.Articulos = busquedaArticulos;
         }
 
-        protected void llenarClientes()
-        {
-
-
-        }
 
         #endregion
     }
