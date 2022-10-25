@@ -25,8 +25,8 @@
           @*<li>
             @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
           </li>*@
-          <li><label id="lblUsuario"></label></li>
-          <li><a  href="javascript:document.getElementById('logoutForm').submit()"><label id="InicioSesion">Iniciar Sesión</label></a></li>
+          <li><a><label id="lblUsuario">@ViewData["Usuario"]</label></a></li>
+          <li><a  href="/"><label id="InicioSesion">Iniciar Sesión</label></a></li>
         </ul>
        @* @Html.Partial("_LoginPartial")*@
       </div>

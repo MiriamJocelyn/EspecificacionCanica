@@ -32,8 +32,9 @@
           if (data.Descripcion == "Los datos son correctos") {
             var nombre = usuario.split('.')[0]
             var apellido = usuario.split('.')[1]
+            var token = $("#lblToken").text();
             $("#lblUsuario").text( nombre + " " +apellido)
-            window.location.href = 'Especificacion/Index/' + nombre + " " + apellido;
+            window.location.href = 'Especificacion/Index/' + nombre + " " + apellido + " " +token;
           }
           else {
             alert(data.Descripcion)
@@ -58,7 +59,7 @@
     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-
+        <label id="lblToken" hidden="hidden">@ViewData["token"]</label>
         <div class="row" style="padding-top:60%!important;padding-left:45%!important">
           <div class="col-md-10">
             @Html.LabelFor(m => m.Usuario, new { @class = "control-label" })

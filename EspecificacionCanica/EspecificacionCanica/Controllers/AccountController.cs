@@ -63,6 +63,9 @@ namespace EspecificacionCanica.Controllers
         public ActionResult Login(string returnUrl)
         {
             Session["usuario"] = null;
+            Guid g = Guid.NewGuid();
+            Session["token"] = g;
+            ViewData["token"] = Session["token"];
             return View();
         }
 
@@ -82,6 +85,9 @@ namespace EspecificacionCanica.Controllers
             {
                 string usuario = model.Usuario;
                 Session["usuario"] = usuario;
+                Guid g = Guid.NewGuid();
+                Console.WriteLine(g);
+                Console.WriteLine(Guid.NewGuid());
                 return RedirectToAction("Index", "Especificacion");
             }
             else
@@ -89,29 +95,6 @@ namespace EspecificacionCanica.Controllers
                 Session["usuario"] = null;
                 ModelState.AddModelError("", model.Descripcion.ToUpper());
             }
-            //JsonCanica.JsonPwdEmpleado jEmpleado = new JsonCanica.JsonPwdEmpleado();
-
-            //jEmpleado.Usuario = model.Usuario;
-            //jEmpleado.Contraseña = model.Contrasenia;
-
-
-
-
-            //ProcesoCanica response = new ProcesoCanica();
-            //JsonCanica.ResponseLogin resp = new JsonCanica.ResponseLogin();
-            //resp = response.ResponseLogin(jEmpleado);
-            //if (resp.Descripcion.ToUpper().Contains("DATOS SON CORRECTOS"))
-            //{
-            //    string usuario = jEmpleado.Usuario;
-            //    Session["usuario"] = usuario;
-            //    return RedirectToAction("Index", "Especificacion");
-            //}
-            //else
-            //{
-            //    Session["usuario"] = null;
-            //    ModelState.AddModelError("", resp.Descripcion.ToUpper());
-            //}
-
             return View(model);
         }
 

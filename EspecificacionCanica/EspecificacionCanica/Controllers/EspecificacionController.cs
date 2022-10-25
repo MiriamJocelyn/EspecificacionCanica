@@ -18,7 +18,22 @@ namespace EspecificacionCanica.Controllers
             if (id == null)
                 return RedirectToAction("Seguridad");
             else
-                Session["usuario"] = id;
+            {
+                String[] url = id.Split(' ');
+                if (url.Length > 0)
+                {
+                    if (url[url.Length-1] == Session["token"].ToString())
+                    {
+                        Session["usuario"] = url[0] + " " + url[1];
+                        ViewData["Usuario"] = "HOLA " + Session["usuario"].ToString().ToUpper() + "!";
+                    }
+                    else
+                        return RedirectToAction("Seguridad");
+                }
+                else
+                    return RedirectToAction("Seguridad");
+               
+            }
             Inicializacion();
             return View();
         }
