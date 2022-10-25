@@ -92,16 +92,19 @@ $(document).ready(function () {
             data: JSON.stringify(object),
             success: function (data) {
                 console.log(data)
-                $("#Encabezado").removeAttr("hidden");
-                Encabezado(data)
-                if (data[0].listabote != null) {
-                    Bote(data)
+                if (data.length>0)
+                {
                     $("#Encabezado").removeAttr("hidden");
+                    Encabezado(data)
+                    if (data[0].listabote != null) {
+                        Bote(data)
+                        $("#Encabezado").removeAttr("hidden");
+                    }
+                    else {
+                        $("#etiquetaBote").attr("hidden", "hidden")
+                    }
+                    display(data)
                 }
-                else {
-                    $("#etiquetaBote").attr("hidden", "hidden")
-                }
-                display(data)
 
             },
             error: function (data) {
