@@ -120,10 +120,10 @@ $(document).ready(function () {
         $("#lblMedida").text(data[0].Medida)
         $("#lblCalibracion").text(data[0].Calibracion)
         $("#lblCodigoSAP").text(data[0].CodigoCanica)
-        $("#lblNumArticulo").text(data[0].CodigoCanica)
-        $("#lblColorMalla").text(data[0].CodigoCanica)
-        $("#lblEmpaque").text(data[0].CodigoCanica)
-        $("#lblNombreCliente").text(data[0].CodigoCanica)
+        $("#lblNumArticulo").text(data[0].NumeroCliente)
+        $("#lblColorMalla").text(data[0].ColorMalla)
+        $("#lblEmpaque").text(data[0].Empaque)
+        $("#lblNombreCliente").text(data[0].NombreCliente)
     }
 
     function Bote(data)
