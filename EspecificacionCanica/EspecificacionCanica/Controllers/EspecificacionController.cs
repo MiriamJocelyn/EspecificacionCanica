@@ -22,17 +22,23 @@ namespace EspecificacionCanica.Controllers
                 String[] url = id.Split(' ');
                 if (url.Length > 0)
                 {
-                    if (url[url.Length-1] == Session["token"].ToString())
+                    if (Session["token"] != null)
                     {
-                        Session["usuario"] = url[0] + " " + url[1];
-                        ViewData["Usuario"] = "HOLA " + Session["usuario"].ToString().ToUpper() + "!";
+                        if (url[url.Length - 1] == Session["token"].ToString())
+                        {
+                            Session["usuario"] = url[0] + " " + url[1];
+                            ViewData["Usuario"] = "HOLA " + Session["usuario"].ToString().ToUpper() + "!";
+                        }
+                        else
+                            return RedirectToAction("Seguridad");
                     }
                     else
-                        return RedirectToAction("Seguridad");
+                        return RedirectToAction("Login","Account",new { });
+
                 }
                 else
                     return RedirectToAction("Seguridad");
-               
+
             }
             Inicializacion();
             return View();
@@ -46,7 +52,7 @@ namespace EspecificacionCanica.Controllers
             return View();
         }
         // GET: Especificacion/Details/5
-        public ActionResult Details(Canica id)
+        public ActionResult Details(Models.EspecificacionCanica id)
         {
             if (Session["usuario"] == null)
             {

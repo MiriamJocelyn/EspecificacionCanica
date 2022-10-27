@@ -181,9 +181,11 @@
     <Compile Include="Models\Busqueda.cs" />
     <Compile Include="Models\Caja.cs" />
     <Compile Include="Models\Canica.cs" />
+    <Compile Include="Models\EspecificacionCanica.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Display.cs" />
-    <Compile Include="Models\Etiqueta.cs" />
+    <Compile Include="Models\EtiquetaCaballete.cs" />
+    <Compile Include="Models\EtiquetaCanica.cs" />
     <Compile Include="Models\EtiquetaBote.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -261,7 +263,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Especificacion\Details.cshtml" />
     <Content Include="Views\Especificacion\Index.cshtml" />
     <Content Include="Views\Especificacion\Seguridad.cshtml" />
     <Content Include="Views\Especificacion\PaginaNoEncontrada.cshtml" />

@@ -122,7 +122,10 @@ textarea {
      text-align:justify!important;
 }
 
+.tableGeneral {
 
+width:95%!important;
+}
 .tableGeneral thead tr th {
     color: white !important;
     border: 1px solid #395095 !important;
@@ -136,7 +139,7 @@ textarea {
     border: 1px solid #395095 !important;
     font-size: 10pt !important;
     background-color:white!important;
-    
+     text-align :center!important;
     /*width:100%!important;*/
 }
 
@@ -145,4 +148,18 @@ textarea {
 color:white !important;
 font-weight:bold!important ;
 
+}
+
+
+.tableCaballete thead tr th {
+    background-color:#8AA5D6!important;
+    color:white !important;
+    font-weight:bold!important;
+}
+
+#tbodyImagenesCanica tr td img{
+width:100%!important;
+}
+#tbodyImagenesCanica tr td {
+    width:50%!important;
 }

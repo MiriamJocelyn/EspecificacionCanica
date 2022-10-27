@@ -8,28 +8,12 @@ namespace EspecificacionCanica.Models
 {
     public class Canica
     {
-        //public string Titulo { get; set; } = "ESPECIFICACIÓN DE PRODUCTO";
-        [DisplayName("Cliente:")]
-        public string  Cliente { get; set; }
-        [DisplayName("Modelo/Línea:")]
-        public string  Modelo { get; set; }
-        [DisplayName("Medida:")]
-        public string Medida { get; set; }
-        [DisplayName("Calibración:")]
-        public string Calibracion { get; set; }
-        [DisplayName("Código SAP:")]
-        public string CodigoSAP { get; set; }
-        [DisplayName("Nombre para el cliente:")]
-        public string NombreCliente { get; set; }
-        [DisplayName("Empaque:")]
-        public string Empaque { get; set; }
-        [DisplayName("Color malla:")]
-        public string ColorMalla { get; set; }
-        [DisplayName("Num de artículo cliente:")]
-        public string NumArticulo { get; set; }
-
-        public EtiquetaBote  etiquetaBote { get; set; }
-        public Display  display { get; set; }
-        public Caja caja { get; set; }
+        [DisplayName("Nombre producción")]
+        public string nomProduccion { get; set; }
+        [DisplayName("Nombre cliente")]
+        public string nomCliente { get; set; }
+        [DisplayName("Código SAP etiqueta")]
+        public string codSAPEtiqueta { get; set; }
+        public string imgCanica { get; set; }
     }
 }
