@@ -11,39 +11,28 @@
 
 @using (Html.BeginForm())
 {
-    <hr />
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-3">
-        <input id="txtCliente" type="text" class="form-control" placeholder=" Buscar Cliente" />
-      </div>
-      <div class="col-md-1">
-        <input type="button" value="Buscar" class="btn btn-info" id="btnBuscar" />
-      </div>
-      <div class="col-md-4">
-        @Html.DropDownList("Clientes", ViewBag.Clientes as SelectList, new { @class = "form-control", @style = "max-width:100%!important" })
-
-      </div>
-      <div class=" col-md-1">
-        <input type="button" value="Cargar" class="btn btn-info" id="btnCargar" />
-      </div>
+  <hr />
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
+      <input id="txtCliente" type="text" class="form-control" placeholder=" Buscar Cliente" />
+    </div>
+    <div class="col-md-1">
+      <input type="button" value="Buscar" class="btn btn-info" id="btnBuscar" />
+    </div>
+    <div class="col-md-4">
+      @Html.DropDownList("Clientes", ViewBag.Clientes as SelectList, new { @class = "form-control", @style = "max-width:100%!important" })
 
     </div>
-
-    <div class="alert alert-success" role="alert" style="margin-top:2%" id="alertCliente">
-      <div class=" row">
-        <div class="col-md-4"></div>
-        <div class="col-md-2">
-          <label id="lblCodigoCliente"></label>
-        </div>
-        <div class="col-md-4">
-          <label id="lblNameCliente"></label>
-        </div>
-      </div>
+    <div class=" col-md-1">
+      <input type="button" value="Cargar" class="btn btn-info" id="btnCargar" />
     </div>
 
-    <div class="row" style="margin-top:2%!important">
-      <div class="col-md-3"></div>
+  </div>
+
+  <div class="alert alert-success" role="alert" style="margin-top:2%" id="alertCliente">
+    <div class=" row">
+      <div class="col-md-4"></div>
       <div class="col-md-2">
         <label id="lblCodigoCliente"></label>
       </div>
@@ -51,335 +40,480 @@
         <label id="lblNameCliente"></label>
       </div>
     </div>
+  </div>
 
-    <div class=" row">
-      <div class="col-md-4"></div>
-      <div class="col-md-3">
-        @Html.DropDownList("Articulos", ViewBag.Articulos as SelectList, new { @class = "form-control" })
-      </div>
-      <div class="col-md-1">
-        <input type="button" value="Buscar Producto" class="btn btn-info" id="btnBuscarProducto" />
+  <div class="row" style="margin-top:2%!important">
+    <div class="col-md-3"></div>
+    <div class="col-md-2">
+      <label id="lblCodigoCliente"></label>
+    </div>
+    <div class="col-md-4">
+      <label id="lblNameCliente"></label>
+    </div>
+  </div>
+
+  <div class=" row">
+    <div class="col-md-4"></div>
+    <div class="col-md-3">
+      @Html.DropDownList("Articulos", ViewBag.Articulos as SelectList, new { @class = "form-control" })
+    </div>
+    <div class="col-md-1">
+      <input type="button" value="Buscar Producto" class="btn btn-info" id="btnBuscarProducto" />
+    </div>
+  </div>
+
+
+  <div id="Encabezado" hidden="hidden" style="margin-top:2%">
+    <div class="jumbotron jumbInicio">
+      <div class="row">
+        <div class="col-md-2" style="vertical-align: central !important">
+          <img src="~/Resources/logo2Artboard 1Glasfirma.png" style="width:80%!important;height:80%!important;padding-top:45%!important " />
+        </div>
+        <div class=" col-md-10">
+          <div class="row" style="color:white;font-weight:bold; text-align:center">
+            <div class="col-md-9">
+              <h2>ESPECIFICACIÓN DE PRODUCTO</h2>
+            </div>
+            <div class="col-md-3">
+              <h2>4-CM-05</h2>
+            </div>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th> @Html.DisplayNameFor(model => model.Cliente)</th>
+                <th> @Html.DisplayNameFor(model => model.Modelo)</th>
+                <th> @Html.DisplayNameFor(model => model.Medida)</th>
+                <th> @Html.DisplayNameFor(model => model.Calibracion)</th>
+                <th> @Html.DisplayNameFor(model => model.CodigoSAP)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="inicio"><lable id="lblCliente"></lable></td>
+                <td><lable id="lblModelo"></lable></td>
+                <td><lable id="lblMedida"></lable></td>
+                <td><lable id="lblCalibracion"></lable></td>
+                <td><lable id="lblCodigoSAP"></lable></td>
+
+              </tr>
+            </tbody>
+          </table>
+          <table class="table">
+            <thead>
+              <tr>
+                <th> @Html.DisplayNameFor(model => model.NombreCliente)</th>
+                <th> @Html.DisplayNameFor(model => model.Empaque)</th>
+                <th> @Html.DisplayNameFor(model => model.ColorMalla)</th>
+                <th> @Html.DisplayNameFor(model => model.NumArticulo)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+
+                <td class="inicio"><lable id="lblNombreCliente"></lable></td>
+                <td><lable id="lblEmpaque"></lable></td>
+                <td><lable id="lblColorMalla"></lable></td>
+                <td><lable id="lblNumArticulo"></lable></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
-
-    <div id="Encabezado" hidden="hidden" style="margin-top:2%">
-      <div class="jumbotron jumbInicio">
-        <div class="row">
-          <div class="col-md-2" style="vertical-align: central !important">
-            <img src="~/Resources/logo2Artboard 1Glasfirma.png" style="width:80%!important;height:80%!important;padding-top:45%!important " />
-          </div>
-          <div class=" col-md-10">
-            <div class="row" style="color:white;font-weight:bold; text-align:center">
-              <div class="col-md-9">
-                <h2>ESPECIFICACIÓN DE PRODUCTO</h2>
-              </div>
-              <div class="col-md-3">
-                <h2>4-CM-05</h2>
-              </div>
-            </div>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th> @Html.DisplayNameFor(model => model.Cliente)</th>
-                  <th> @Html.DisplayNameFor(model => model.Modelo)</th>
-                  <th> @Html.DisplayNameFor(model => model.Medida)</th>
-                  <th> @Html.DisplayNameFor(model => model.Calibracion)</th>
-                  <th> @Html.DisplayNameFor(model => model.CodigoSAP)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="inicio"><lable id="lblCliente"></lable></td>
-                  <td><lable id="lblModelo"></lable></td>
-                  <td><lable id="lblMedida"></lable></td>
-                  <td><lable id="lblCalibracion"></lable></td>
-                  <td><lable id="lblCodigoSAP"></lable></td>
-
-                </tr>
-              </tbody>
-            </table>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th> @Html.DisplayNameFor(model => model.NombreCliente)</th>
-                  <th> @Html.DisplayNameFor(model => model.Empaque)</th>
-                  <th> @Html.DisplayNameFor(model => model.ColorMalla)</th>
-                  <th> @Html.DisplayNameFor(model => model.NumArticulo)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-
-                  <td class="inicio"><lable id="lblNombreCliente"></lable></td>
-                  <td><lable id="lblEmpaque"></lable></td>
-                  <td><lable id="lblColorMalla"></lable></td>
-                  <td><lable id="lblNumArticulo"></lable></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+    <div class="accordion" id="etiquetaBote">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              ETIQUETA
+            </button>
+          </h5>
         </div>
-      </div>
-
-      <div class="accordion" id="etiquetaBote">
-        <div class="card">
-          <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                ETIQUETA
-              </button>
-            </h5>
-          </div>
-          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#etiquetaBote">
-            <div class="card-body">
-              <div class="row" style="padding-left:2%!important;padding-bottom:2%!important">
-                <div class="col-md-6">
-                  <table class="tableBote">
-                    <tbody>
-                      <tr>
-                        <td><img id="imgPrincipalBote"/></td>
-                      </tr>
-                      <tr>
-
-                        <td><label id="descImgPrincipal"></label></td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-
-                </div>
-                <div class="col-md-6">
-                  <table class="tableBote">
-                    <tbody>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapAdherible)</td>
-                        <td><label id="lblCodSapAdherible"></label></td>
-                      </tr>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapTrasero)</td>
-                        <td><label id="lblCodSapTrasero"></label></td>
-                      </tr>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodBarrasTrasero)</td>
-                        <td><label id="lblCodBarrasTrasero"></label></td>
-                      </tr>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapBote)</td>
-                        <td><label id="lblCodSapBote"></label></td>
-                      </tr>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapEsponja)</td>
-                        <td><label id="lblCodSapEsponja"></label></td>
-                      </tr>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapPolipack)</td>
-                        <td><label id="lblCodSapPolipack"></label></td>
-                      </tr>
-                      <tr>
-                        <td colspan="2"><label id="lblTapa"></label></td>
-                      </tr>
-                      <tr>
-                        <td colspan="2"><label id="lblObservaciones"></label></td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                  <hr />
-
-
-                  <table class="tableGeneral " style="width:95%!important ">
-                    <thead>
-                      <tr>
-                        <th>@Html.DisplayNameFor(model => model.etiquetaBote.imgFrente)</th>
-                        <th>@Html.DisplayNameFor(model => model.etiquetaBote.imgVuelta)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><img id="imgFrente" style="width:95%!important"></td>
-                        <td><img id="imgVuelta" style="width:95%!important"></td>
-                      </tr>
-                      <tr>
-                        <td><label id="lbldescImgFrente"></label></td>
-                        <td><label id="lbldescImgVuelta"></label></td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#etiquetaBote">
+          <div class="card-body">
+            <div class="row" style="padding-left:2%!important;padding-bottom:2%!important;">
+              <div class="col-md-6">
+                <table class="tableBote">
+                  <tbody>
+                    <tr>
+                      <td><img id="imgPrincipalBote" style="height:500px!important" /></td>
+                    </tr>
+                    <tr>
+                      <td><label id="descImgPrincipal"></label></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-            </div>
-          </div>
+              <div class="col-md-6">
+                <table class="tableBote">
+                  <tbody>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapAdherible)</td>
+                      <td><label id="lblCodSapAdherible"></label></td>
+                    </tr>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapTrasero)</td>
+                      <td><label id="lblCodSapTrasero"></label></td>
+                    </tr>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodBarrasTrasero)</td>
+                      <td><label id="lblCodBarrasTrasero"></label></td>
+                    </tr>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapBote)</td>
+                      <td><label id="lblCodSapBote"></label></td>
+                    </tr>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapEsponja)</td>
+                      <td><label id="lblCodSapEsponja"></label></td>
+                    </tr>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaBote.CodSapPolipack)</td>
+                      <td><label id="lblCodSapPolipack"></label></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><label id="lblTapa"></label></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><label id="lblObservaciones"></label></td>
+                    </tr>
+                  </tbody>
+                </table>
 
-        </div>
-      </div>
-
-      <div class="accordion" id="etiquetaCanica">
-        <div class="card">
-          <div class="card-header" id="headingTwo">
-            <h5 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                ETIQUETA
-              </button>
-            </h5>
-          </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#etiquetaCanica">
-            <div class="card-body">
-              <div class="row" style="padding-left:2%!important;padding-bottom:2%!important">
-                <div class="col-md-6">
-                  <table class="tableBote">
-                    <tbody>
-                      <tr>
-                        <td><img id="imgPrincipalEtiquetaC" style=" "></td>
-                      </tr>
-                      <tr>
-                        <td><label id="descImgPrincipalEtiquetaC"></label></td>
-                      </tr>
-                      <tr>
-                        <td><label id="imgVueltaEtiquetaC"></label></td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <hr />
 
 
-                </div>
-                <div class="col-md-6">
-                  <table class="tableBote">
-                    <tbody>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaCanica.CodBarras)</td>
-                        <td><label id="lblCodBarrasEtiquetaC"></label></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <hr />
-                  <table class="tableGeneral">
-                    <thead>
-                      <tr>
-                        <th style="width:10px!important">#</th>
-                        <th>@Html.DisplayNameFor(model => model.etiquetaCanica.canicas[0].nomProduccion)</th>
-                        <th>@Html.DisplayNameFor(model => model.etiquetaCanica.canicas[0].nomCliente)</th>
-                        <th> @Html.DisplayNameFor(model => model.etiquetaCanica.canicas[0].codSAPEtiqueta)</th>
-                      </tr>
-                    </thead>
+                <table class="tableGeneral " style="width:95%!important ">
+                  <thead>
+                    <tr>
+                      <th>@Html.DisplayNameFor(model => model.etiquetaBote.imgFrente)</th>
+                      <th>@Html.DisplayNameFor(model => model.etiquetaBote.imgVuelta)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><img id="imgFrente" style="width:95%!important;height:250px;"></td>
+                      <td><img id="imgVuelta" style="width:95%!important;height:250px;"></td>
+                    </tr>
+                    <tr>
+                      <td><label id="lbldescImgFrente"></label></td>
+                      <td><label id="lbldescImgVuelta"></label></td>
+                    </tr>
+                  </tbody>
+                </table>
 
-                    <tbody id="tbodyCanica" >
-                     
-                      
-                    </tbody>
-
-                  </table>
-
-                  <hr />
-                  <table class="tableGeneral">
-                    <tbody id="tbodyImagenesCanica">
-
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <img src=""/>
-      <div id="display" class="accordion">
-        <div class="card">
-          <div id="headingThree" class="card-header">
-            <h5 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                ETIQUETA
-              </button>
-            </h5>
-          </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#display">
-            <div class="card-body">
-              <div class="row" style=" padding-bottom:2%!important">
-                <div class="col-md-6">
-                  <img id="imgPrincipalEtiquetaCaba">
-                </div>
-                <div class="col-md-6">
-                  <table class="tableBote">
-                    <tbody>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaCaballete.CodBarras)</td>
-                        <td><label id="lblcodBarrasEtiquetaCaba"></label></td>
-                      </tr>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaCaballete.CodSAPEtiqueta)</td>
-                        <td><label id="lblcodSAPEtiquetaCaba"></label></td>
-                      </tr>
-                      <tr>
-                        <td colspan="2"><label id="lblDescripcionEtiquetaCaba"></label></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                 <hr />
-                  <table class="tableGeneral tableCaballete">
-                    <thead>
-                      <tr>
-                        <th colspan="3"><label id="lblModelosCaballete">MODELOS DIFERENTES</label></th>
-                      </tr>
-                    </thead>
-                    <tbody id="tbodyCaballete">
-
-                    </tbody>
-                  </table>
-
-                </div>
               </div>
             </div>
           </div>
         </div>
+
       </div>
+    </div>
+
+    <div class="accordion" id="etiquetaCanica">
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+              ETIQUETA
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#etiquetaCanica">
+          <div class="card-body">
+            <div class="row" style="padding-left:2%!important;padding-bottom:2%!important">
+              <div class="col-md-6">
+                <table class="tableBote">
+                  <tbody>
+                    <tr>
+                      <td><img id="imgPrincipalEtiquetaC" style=" "></td>
+                    </tr>
+                    <tr>
+                      <td><label id="descImgPrincipalEtiquetaC"></label></td>
+                    </tr>
+                    <tr>
+                      <td><label id="imgVueltaEtiquetaC"></label></td>
+                    </tr>
+                  </tbody>
+                </table>
 
 
-      <div id="display" class="accordion">
-        <div class="card">
-          <div id="headingFour" class="card-header">
-            <h5 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                DISPLAY
-              </button>
-            </h5>
+              </div>
+              <div class="col-md-6">
+                <table class="tableBote">
+                  <tbody>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaCanica.CodBarras)</td>
+                      <td><label id="lblCodBarrasEtiquetaC"></label></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr />
+                <table class="tableGeneral">
+                  <thead>
+                    <tr>
+                      <th style="width:10px!important">#</th>
+                      <th>@Html.DisplayNameFor(model => model.etiquetaCanica.canicas[0].nomProduccion)</th>
+                      <th>@Html.DisplayNameFor(model => model.etiquetaCanica.canicas[0].nomCliente)</th>
+                      <th> @Html.DisplayNameFor(model => model.etiquetaCanica.canicas[0].codSAPEtiqueta)</th>
+                    </tr>
+                  </thead>
+
+                  <tbody id="tbodyCanica"></tbody>
+
+                </table>
+
+                <hr />
+                <table class="tableGeneral">
+                  <tbody id="tbodyImagenesCanica"></tbody>
+                </table>
+              </div>
+            </div>
           </div>
-          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#display">
-            <div class="card-body">
-              <div class="row" style=" padding-bottom:2%!important">
-                <div class="col-md-6">
-                  <img id="imgDisplayPrincipal">
-                </div>
-                <div class="col-md-6">
-                  <table class="tableBote">
-                    <tbody>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.display.codSAP)</td>
-                        <td><label id="lblcodSAPDisplay"></label></td>
-                      </tr>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.display.codSAPSticker)</td>
-                        <td><label id="lblcodSAPStickerDisplay"></label></td>
-                      </tr>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.display.codBarras)</td>
-                        <td><label id="lblcodBarrasDiplay"></label></td>
-                      </tr>
-                      <tr>
-                        <td colspan="2"><label id="lblDescripcion"></label></td>
+        </div>
 
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+      </div>
+    </div>
+
+    <div id="display" class="accordion">
+      <div class="card">
+        <div id="headingThree" class="card-header">
+          <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+              ETIQUETA
+            </button>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#display">
+          <div class="card-body">
+            <div class="row" style=" padding-bottom:2%!important">
+              <div class="col-md-6">
+                <img id="imgPrincipalEtiquetaCaba">
+              </div>
+              <div class="col-md-6">
+                <table class="tableBote">
+                  <tbody>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaCaballete.CodBarras)</td>
+                      <td><label id="lblcodBarrasEtiquetaCaba"></label></td>
+                    </tr>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.etiquetaCaballete.CodSAPEtiqueta)</td>
+                      <td><label id="lblcodSAPEtiquetaCaba"></label></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><label id="lblDescripcionEtiquetaCaba"></label></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr />
+                <table class="tableGeneral tableCaballete">
+                  <thead>
+                    <tr>
+                      <th colspan="3"><label id="lblModelosCaballete">MODELOS DIFERENTES</label></th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbodyCaballete"></tbody>
+                </table>
+
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
+    <div id="display" class="accordion">
+      <div class="card">
+        <div id="headingFour" class="card-header">
+          <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+              DISPLAY
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#display">
+          <div class="card-body">
+            <div class="row" style=" padding-bottom:2%!important">
+              <div class="col-md-6">
+                <table class="tableGeneral">
+                  <tr>
+                    <td><img id="imgDisplayPrincipal"></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col-md-6">
+                <table class="tableBote">
+                  <tbody>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.display.codSAP)</td>
+                      <td><label id="lblcodSAPDisplay"></label></td>
+                    </tr>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.display.codSAPSticker)</td>
+                      <td><label id="lblcodSAPStickerDisplay"></label></td>
+                    </tr>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.display.codBarras)</td>
+                      <td><label id="lblcodBarrasDiplay"></label></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><label id="lblDescripcion"></label></td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="caja" class="accordion">
+      <div class="card">
+        <div id="headingFive" class="card-header">
+          <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+              CAJA MASTER
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#caja">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <table class="tableBote">
+                  <tbody>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.caja.CodSap)</td>
+                      <td><label id="lblcodSAPCaja"></label></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" id="lblDescCodSapCaja"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-6">
+                <table class="tableBote">
+                  <tbody>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.caja.CodBarras)</td>
+                      <td><label id="lblcodSAPCaja"></label></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" id="lblDescCodBarrasCaja"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class=" row">
+              <div class="col-md-12">
+                <table class="tableGeneral" style="width:97.5%!important">
+                  <tbody>
+                    <tr>
+                      <td><img /></td>
+
+                    </tr>
+                    <tr>
+                      <td colspan="2"></td>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="bolsa" class="accordion">
+      <div class="card">
+        <div id="headingSix" class="card-header">
+          <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+              BOLSA
+            </button>
+          </h5>
+        </div>
+        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#bolsa">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <table class="tableBote">
+                  <tbody>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.bolsa.CodSap)</td>
+                      <td><label id="lblcodSAPBolsa"></label></td>
+                    </tr>
+                    <tr>
+
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-6">
+                <table class="tableBote">
+                  <tbody>
+                    <tr>
+                      <td class="tituloTa">@Html.DisplayNameFor(model => model.bolsa.CodBarras)</td>
+                      <td><label id="lblcodSAPCaja"></label></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" id="lblDescCodBarrasCaja"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <table class="tableBote">
+                    <tbody>
+                      <tr>
+                        <td class="tituloTa">@Html.DisplayNameFor(model => model.bolsa.Medidas)</td>
+                        <td><label id="lblcodSAPBolsa"></label></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+              </div>
+
+
+              <div class=" row">
+                <div class="col-md-12">
+                  <table class="tableGeneral" style="width:97.5%!important">
+                    <tbody>
+                      <tr>
+                        <td><img /></td>
+
+                      </tr>
+                      <tr>
+                        <td colspan="2"></td>
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
 
 
 }

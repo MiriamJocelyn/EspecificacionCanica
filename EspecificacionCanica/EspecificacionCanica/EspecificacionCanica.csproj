@@ -178,6 +178,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Articulo.cs" />
+    <Compile Include="Models\Bolsa.cs" />
     <Compile Include="Models\Busqueda.cs" />
     <Compile Include="Models\Caja.cs" />
     <Compile Include="Models\Canica.cs" />

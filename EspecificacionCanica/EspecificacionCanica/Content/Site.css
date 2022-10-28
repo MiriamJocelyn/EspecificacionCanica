@@ -113,7 +113,8 @@ textarea {
     .tableBote tbody tr td {
         border: 1px solid  #395095 !important;
         width: 50% !important;
-        text-align:center!important;
+        text-align:center!important;    
+
     }
 .tituloTa {
     color:white!important;
@@ -140,6 +141,7 @@ width:95%!important;
     font-size: 10pt !important;
     background-color:white!important;
      text-align :center!important;
+     /*height:100px!important*/
     /*width:100%!important;*/
 }
 
@@ -162,4 +164,9 @@ width:100%!important;
 }
 #tbodyImagenesCanica tr td {
     width:50%!important;
+}
+
+.card-body .row {
+padding-left:2%!important;
+padding-bottom:2%!important;
 }
