@@ -7,7 +7,7 @@ $(document).ready(function () {
         var valorC = $("#txtCliente").val();
         var object = { cliente: valorC }
         $("#Encabezado").attr("hidden", "hidden")
-        
+
         jQuery.ajax({
             async: true,
             url: "http://localhost:64931/CanicaE/ConsultaClientes",
@@ -125,6 +125,7 @@ $(document).ready(function () {
     function Bote(data) {
         if (data[0].listabote != null) {
             $("#Encabezado").removeAttr("hidden");
+            $("#etiquetaBote").removeAttr("hidden", "hidden")
             $("#lblCodSapAdherible").text(data[0].listabote.AdheribleFrente)
             $("#lblCodSapTrasero").text(data[0].listabote.StickerTrasero)
             $("#lblCodBarrasTrasero").text(data[0].listabote.CBSticker)
@@ -145,11 +146,16 @@ $(document).ready(function () {
             $("#etiquetaBote").attr("hidden", "hidden")
     }
     function display(data) {
-        $("#lblcodSAPDisplay").text(data[0].listadisplay.CodigoDisplay)
-        $("#lblcodSAPStickerDisplay").text(data[0].listadisplay.CodigoSticker)
-        $("#lblcodBarrasDiplay").text(data[0].listadisplay.CBSticker)
-        $("#lblDescripcion").text(data[0].listadisplay.InfoDisplay)
-        $("#imgDisplayPrincipal").attr("scr", data[0].listadisplay.ImgDisplay)
+        if (data[0].listadisplay != null) {
+            $("#display").removeAttr("hidden", "hidden")
+            $("#lblcodSAPDisplay").text(data[0].listadisplay.CodigoDisplay)
+            $("#lblcodSAPStickerDisplay").text(data[0].listadisplay.CodigoSticker)
+            $("#lblcodBarrasDiplay").text(data[0].listadisplay.CBSticker)
+            $("#lblDescripcion").text(data[0].listadisplay.InfoDisplay)
+            $("#imgDisplayPrincipal").attr("src", data[0].listadisplay.ImgDisplay)
+        }
+        else
+            $("#display").attr("hidden", "hidden")
     }
 
     function LimpiarDrop(select, valor) {
@@ -163,103 +169,160 @@ $(document).ready(function () {
     }
 
     function caballete(data) {
-        $("#tbodyCaballete").empty()
-        var cantidadModelos = 14; //aqui agregar el count del data lista canicas.
-        $("#lblModelosCaballete").text(cantidadModelos + " MODELOS DIFERENTES");
-        //verificar que existan datos
-        var htmlTbody = "";
-        var dividido = cantidadModelos / 3;
-        var residuo = cantidadModelos % 3;
-        if (residuo != 0)
-            dividido =Math.ceil(dividido)
-        var canica = "Conde";
-        var aux = 3;
+        if (data[0].listaMezcla != null)
+        {
+            $("#etiquetaMezcla").removeAttr("hidden");
+            $("#tbodyCaballete").empty()
+            var cantidadModelos = 1; //aqui agregar el count del data lista canicas.
+            $("#lblModelosCaballete").text(cantidadModelos + " MODELOS DIFERENTES");
+            $("#lblcodBarrasEtiquetaCaba").text(data[0].listaMezcla[0].CBEtiqueta)
+            $("#lblcodSAPEtiquetaCaba").text(data[0].listaMezcla[0].CodEtiqueta)
+            $("#lblDescripcionEtiquetaCaba").text(data[0].listaMezcla[0].Descripcion)
+            $("#imgPrincipalEtiquetaCaba").attr("src", data[0].listaMezcla[0].ImgCaballete)
+            //verificar que existan datos
+            var htmlTbody = "";
+            var dividido = cantidadModelos / 3;
+            var residuo = cantidadModelos % 3;
+            if (residuo != 0)
+                dividido = Math.ceil(dividido)
+            var canica = data[0].listaMezcla.Modelo;
+            var aux = 3;
 
-
-        for (i = 1; i <= dividido; i++) {
             htmlTbody += "<tr>"
-            if (i != dividido) {
-                for (j = 1; j <= aux; j++) {
-                        htmlTbody += "<td>" + canica + "</td>"
-                }
+            for (i = 0; i <3; i++) {
+                htmlTbody += "<td>" + "<label>" + data[0].listaMezcla[i].Modelo + "</label></td>"
             }
-            else {
-                if (residuo > 0) {
-                    aux2 = residuo;
-                    for (j = 1; j <= aux2; j++) {
-                        htmlTbody += "<td>" + canica + "</td>"
-                    }
-
-                    for (k = 0; k < (aux - residuo) ; k++) {
-                        htmlTbody += "<td>" + "</td>"
-                    }
-                }
-                else {
-                    for (k = 0; k < aux ; k++) {
-                        htmlTbody += "<td>" + canica + "</td>"
-                    }
-                }
-                    
-            }
-               
             htmlTbody += "</tr>"
+
+
+            htmlTbody += "<tr>"
+            for (i = 3; i < 5; i++) {
+                htmlTbody += "<td>" + "<label>" + data[0].listaMezcla[i].Modelo + "</label></td>"
+            }
+            htmlTbody += "</tr>"
+            $("#tbodyCaballete").append(htmlTbody)
         }
-        $("#tbodyCaballete").append(htmlTbody)
+        else
+            $("#etiquetaMezcla").attr("hidden", "hidden")
+
+
+
+
+        //for (i = 1; i <= dividido; i++) {
+        //    htmlTbody += "<tr>"
+        //    if (i != dividido) {
+        //        for (j = 1; j <= aux; j++) {
+        //            htmlTbody += "<td>" + canica + "</td>"
+        //        }
+        //    }
+        //    else {
+        //        if (residuo > 0) {
+        //            aux2 = residuo;
+        //            for (j = 1; j <= aux2; j++) {
+        //                htmlTbody += "<td>" + canica + "</td>"
+        //            }
+
+        //            for (k = 0; k < (aux - residuo) ; k++) {
+        //                htmlTbody += "<td>" + "</td>"
+        //            }
+        //        }
+        //        else {
+        //            for (k = 0; k < aux ; k++) {
+        //                htmlTbody += "<td>" + canica + "</td>"
+        //            }
+        //        }
+
+        //    }
+
+        //    htmlTbody += "</tr>"
+        //}
+   
     }
 
-    function etiquetaCanica(data)
-    {
-        var cantidad = 5; //Canicas aqui va el length del data de canicas
-        var htmlTbody = "";
-        for (i = 0; i < cantidad; i++)
-        {
-            htmlTbody += "<tr>"
-            htmlTbody += "<td>" +(i+1) + "</td>"
-            htmlTbody += "<td>" +  "</td>"
-            htmlTbody += "<td>" +  "</td>"
-            htmlTbody += "<td>" + "</td>"
-            htmlTbody += "<tr>"
-        }
-        $("#tbodyCanica").append(htmlTbody)
-        //////////////agregar imagenes de 2 en dos 
-        htmlTbody = "";
-        var dividido = cantidad / 2
-        var residuo = cantidad % 2
-        if (residuo != 0)
-            dividido = Math.ceil(dividido)
-        var canica = "Conde";
-        var aux = 2;
-        for (i = 1; i <= dividido; i++) {
-            htmlTbody += "<tr>"
-            if (i != dividido) {
-                for (j = 1; j <= aux; j++) {
-                    htmlTbody += "<td>" + "<label>" + canica + "</label><img src='/Resources/img0.png'/></td>"
-                }
+    function etiquetaCanica(data) {
+        if (data[0].listaColeccion != null) {
+            $("#etiquetaCanica").removeAttr("hidden");
+            $("#lblCodBarrasEtiquetaC").text(data[0].listaColeccion[0].CBEtiqueta)
+            $("#imgPrincipalEtiquetaC").attr("src", data[0].listaColeccion[0].ImgFrente)
+            $("#imgVueltaEtiquetaC").attr("src", data[0].listaColeccion[0].ImgVuelta)
+            $("#imgCodBarrasColeccion").attr("src", data[0].listaColeccion[0].ImgCodBarras)
+
+            $("#tbodyImagenesCanica").empty()
+            var cantidad = 4; //Canicas aqui va el length del data de canicas
+            var htmlTbody = "";
+            for (i = 0; i < cantidad; i++) {
+                htmlTbody += "<tr>"
+                htmlTbody += "<td>" + (i + 1) + "</td>"
+                htmlTbody += "<td>" + data[0].listaColeccion[i].NombreProduccion + "</td>"
+                htmlTbody += "<td>" + data[0].listaColeccion[i].NombreCliente + "</td>"
+                htmlTbody += "<td>" + data[0].listaColeccion[i].CodigoEtiqueta + "</td>"
+                htmlTbody += "<tr>"
             }
-            else {
-                if (residuo > 0) {
-                    aux2 = residuo;
-                    for (j = 1; j <= aux2; j++) {
-                        htmlTbody += "<td>" + canica + "</td>"
-                    }
+            $("#tbodyCanica").append(htmlTbody)
+            //////////////agregar imagenes de 2 en dos 
+            htmlTbody = "";
+            var dividido = cantidad / 2
+            var residuo = cantidad % 2
+            if (residuo != 0)
+                dividido = Math.ceil(dividido)
+            var canica = "Conde";
+            var aux = 2;
+            var auxi = 0;
 
-                    for (k = 0; k < (aux - residuo) ; k++) {
-                        htmlTbody += "<td>" + "</td>"
-                    }
-                }
-                else {
-                    for (k = 0; k < aux ; k++) {
-                        htmlTbody += "<td>" + "<label>" + canica + "</label><img src='/Resources/img0.png'/></td>"
-                    }
-                }
-
+            htmlTbody += "<tr>"
+            for (i = 0; i < 2; i++) {
+                htmlTbody += "<td>" + "<label>" + (i + 1) + "</label><img src='" + data[0].listaColeccion[i].ImgCanica + "'/></td>"
             }
-
             htmlTbody += "</tr>"
+
+
+            htmlTbody += "<tr>"
+            for (i = 2; i < 4; i++) {
+                htmlTbody += "<td>" + "<label>" + (i + 1) + "</label><img src='" + data[0].listaColeccion[i].ImgCanica + "'/></td>"
+            }
+            htmlTbody += "</tr>"
+
+
+            //for (i = 1; i <= dividido; i++) {
+            //    htmlTbody += "<tr>"
+            //    if (i != dividido) {
+            //        for (j = 1; j <= aux; j++) {
+            //            htmlTbody += "<td>" + "<label>" + j + "</label><img src='" + data[0].listaColeccion[auxi].ImgCanica + "'/></td>"
+            //            auxi+=1
+            //        }
+            //    }
+            //    else {
+            //        if (residuo > 0) {
+            //            aux2 = residuo;
+            //            for (j = 1; j <= aux2; j++) {
+            //                htmlTbody += "<td>" + "<label>" + j + "</label><img src='" + data[0].listaColeccion[auxi].ImgCanica + "'/></td>"
+            //                auxi += 1
+            //            }
+
+            //            for (k = 0; k < (aux - residuo) ; k++) {
+            //                htmlTbody += "<td>" + "</td>"
+            //            }
+            //        }
+            //        else {
+            //            for (k = 0; k < aux ; k++) {
+            //                htmlTbody += "<td>" + "<label>" + k + "</label><img src='" + data[0].listaColeccion[auxi].ImgCanica + "'/></td>"
+            //                auxi += 1
+            //            }
+            //        }
+
+            //    }
+
+            //    htmlTbody += "</tr>"
+            //    auxi += 1;
+            //}
+
+            console.log(htmlTbody)
+            $("#tbodyImagenesCanica").append(htmlTbody)
         }
-       
-        $("#tbodyImagenesCanica").append(htmlTbody)
-        
+        else {
+            $("#etiquetaCanica").attr("hidden", "hidden")
+            
+        }
     }
 
 });

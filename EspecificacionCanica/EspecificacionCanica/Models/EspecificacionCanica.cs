@@ -33,5 +33,6 @@ namespace EspecificacionCanica.Models
         public EtiquetaCaballete etiquetaCaballete { get; set; }
         public Display  display { get; set; }
         public Caja caja { get; set; }
+        public Bolsa bolsa { get; set; }
     }
 }
