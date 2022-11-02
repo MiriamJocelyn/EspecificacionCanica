@@ -6,7 +6,7 @@ using System.Web;
 
 namespace EspecificacionCanica.Models
 {
-    public class EtiquetaCanica
+    public class EtiquetaCanica 
     {
         [DisplayName("Código de Barras Etiquetas:")]
         public string CodBarras { get; set; }

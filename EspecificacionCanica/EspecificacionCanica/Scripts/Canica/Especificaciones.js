@@ -173,7 +173,7 @@ $(document).ready(function () {
         {
             $("#etiquetaMezcla").removeAttr("hidden");
             $("#tbodyCaballete").empty()
-            var cantidadModelos = 1; //aqui agregar el count del data lista canicas.
+            var cantidadModelos = data[0].listaMezcla.length; //aqui agregar el count del data lista canicas.
             $("#lblModelosCaballete").text(cantidadModelos + " MODELOS DIFERENTES");
             $("#lblcodBarrasEtiquetaCaba").text(data[0].listaMezcla[0].CBEtiqueta)
             $("#lblcodSAPEtiquetaCaba").text(data[0].listaMezcla[0].CodEtiqueta)
@@ -185,21 +185,44 @@ $(document).ready(function () {
             var residuo = cantidadModelos % 3;
             if (residuo != 0)
                 dividido = Math.ceil(dividido)
-            var canica = data[0].listaMezcla.Modelo;
+            //var canica = data[0].listaMezcla.Modelo;
             var aux = 3;
 
-            htmlTbody += "<tr>"
-            for (i = 0; i <3; i++) {
-                htmlTbody += "<td>" + "<label>" + data[0].listaMezcla[i].Modelo + "</label></td>"
+            var auxI=0
+            for (i = 1; i <= dividido; i++) {
+                htmlTbody += "<tr>"
+                if (i != dividido) {
+                    for (j = 1; j <= aux; j++) {
+                        htmlTbody += "<td>" + data[0].listaMezcla[auxI].Modelo + "</td>"
+                        auxI+=1
+                    }
+                }
+                else {
+                    if (residuo > 0) {
+                        aux2 = residuo;
+                        for (j = 1; j <= aux2; j++) {
+                            htmlTbody += "<td>" + data[0].listaMezcla[auxI].Modelo + "</td>"
+                            auxI += 1
+                        }
+
+                        for (k = 0; k < (aux - residuo) ; k++) {
+                            htmlTbody += "<td>" + "</td>"
+                        }
+                    }
+                    else {
+                        for (k = 0; k < aux ; k++) {
+                            htmlTbody += "<td>" + data[0].listaMezcla[auxI].Modelo + "</td>"
+                            auxI += 1
+                        }
+                    }
+
+                }
+
+                htmlTbody += "</tr>"
             }
-            htmlTbody += "</tr>"
 
 
-            htmlTbody += "<tr>"
-            for (i = 3; i < 5; i++) {
-                htmlTbody += "<td>" + "<label>" + data[0].listaMezcla[i].Modelo + "</label></td>"
-            }
-            htmlTbody += "</tr>"
+
             $("#tbodyCaballete").append(htmlTbody)
         }
         else
@@ -208,34 +231,7 @@ $(document).ready(function () {
 
 
 
-        //for (i = 1; i <= dividido; i++) {
-        //    htmlTbody += "<tr>"
-        //    if (i != dividido) {
-        //        for (j = 1; j <= aux; j++) {
-        //            htmlTbody += "<td>" + canica + "</td>"
-        //        }
-        //    }
-        //    else {
-        //        if (residuo > 0) {
-        //            aux2 = residuo;
-        //            for (j = 1; j <= aux2; j++) {
-        //                htmlTbody += "<td>" + canica + "</td>"
-        //            }
-
-        //            for (k = 0; k < (aux - residuo) ; k++) {
-        //                htmlTbody += "<td>" + "</td>"
-        //            }
-        //        }
-        //        else {
-        //            for (k = 0; k < aux ; k++) {
-        //                htmlTbody += "<td>" + canica + "</td>"
-        //            }
-        //        }
-
-        //    }
-
-        //    htmlTbody += "</tr>"
-        //}
+        
    
     }
 
@@ -269,52 +265,54 @@ $(document).ready(function () {
             var aux = 2;
             var auxi = 0;
 
-            htmlTbody += "<tr>"
-            for (i = 0; i < 2; i++) {
-                htmlTbody += "<td>" + "<label>" + (i + 1) + "</label><img src='" + data[0].listaColeccion[i].ImgCanica + "'/></td>"
-            }
-            htmlTbody += "</tr>"
-
-
-            htmlTbody += "<tr>"
-            for (i = 2; i < 4; i++) {
-                htmlTbody += "<td>" + "<label>" + (i + 1) + "</label><img src='" + data[0].listaColeccion[i].ImgCanica + "'/></td>"
-            }
-            htmlTbody += "</tr>"
-
-
-            //for (i = 1; i <= dividido; i++) {
-            //    htmlTbody += "<tr>"
-            //    if (i != dividido) {
-            //        for (j = 1; j <= aux; j++) {
-            //            htmlTbody += "<td>" + "<label>" + j + "</label><img src='" + data[0].listaColeccion[auxi].ImgCanica + "'/></td>"
-            //            auxi+=1
-            //        }
-            //    }
-            //    else {
-            //        if (residuo > 0) {
-            //            aux2 = residuo;
-            //            for (j = 1; j <= aux2; j++) {
-            //                htmlTbody += "<td>" + "<label>" + j + "</label><img src='" + data[0].listaColeccion[auxi].ImgCanica + "'/></td>"
-            //                auxi += 1
-            //            }
-
-            //            for (k = 0; k < (aux - residuo) ; k++) {
-            //                htmlTbody += "<td>" + "</td>"
-            //            }
-            //        }
-            //        else {
-            //            for (k = 0; k < aux ; k++) {
-            //                htmlTbody += "<td>" + "<label>" + k + "</label><img src='" + data[0].listaColeccion[auxi].ImgCanica + "'/></td>"
-            //                auxi += 1
-            //            }
-            //        }
-
-            //    }
-
-            //    htmlTbody += "</tr>"
-            //    auxi += 1;
+            //htmlTbody += "<tr>"
+            //for (i = 0; i < 2; i++) {
+            //    htmlTbody += "<td>" + "<label>" + (i + 1) + "</label><img src='" + data[0].listaColeccion[i].ImgCanica + "'/></td>"
             //}
+            //htmlTbody += "</tr>"
+
+
+            //htmlTbody += "<tr>"
+            //for (i = 2; i < 4; i++) {
+            //    htmlTbody += "<td>" + "<label>" + (i + 1) + "</label><img src='" + data[0].listaColeccion[i].ImgCanica + "'/></td>"
+            //}
+            //htmlTbody += "</tr>"
+
+
+            for (i = 1; i <= dividido; i++) {
+                htmlTbody += "<tr>"
+                if (i != dividido) {
+                    for (j = 1; j <= aux; j++) {
+                        htmlTbody += "<td>" + "<label>" + (auxi+1) + "</label><img src='" + data[0].listaColeccion[auxi].ImgCanica + "'/></td>"
+                        auxi+=1
+                    }
+                }
+                else {
+                    if (residuo > 0) {
+                        aux2 = residuo;
+                        for (j = 1; j <= aux2; j++) {
+                            alert(auxi)
+                            htmlTbody += "<td>" + "<label>" + (auxi + 1) + "</label><img src='" + data[0].listaColeccion[auxi].ImgCanica + "'/></td>"
+                            auxi += 1
+                        }
+
+                        for (k = 0; k < (aux - residuo) ; k++) {
+                            htmlTbody += "<td>" + "</td>"
+                        }
+                    }
+                    else {
+                        for (k = 0; k < aux ; k++) {
+                            alert(auxi)
+                            htmlTbody += "<td>" + "<label>" + (auxi + 1) + "</label><img src='" + data[0].listaColeccion[auxi].ImgCanica + "'/></td>"
+                            auxi += 1
+                        }
+                    }
+
+                }
+
+                htmlTbody += "</tr>"
+                
+            }
 
             console.log(htmlTbody)
             $("#tbodyImagenesCanica").append(htmlTbody)
