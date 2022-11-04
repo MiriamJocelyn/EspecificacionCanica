@@ -100,7 +100,7 @@ $(document).ready(function () {
                     caballete(data)
                     etiquetaCanica(data)
                     display(data)
-                    encabezadoPie()
+                    //encabezadoPie()
                 }
 
             },
@@ -241,6 +241,7 @@ $(document).ready(function () {
             $("#imgCodBarrasColeccion").attr("src", data[0].listaColeccion[0].ImgCodBarras)
 
             $("#tbodyImagenesCanica").empty()
+            $("#tbodyCanica").empty()
             var cantidad = 4; //Canicas aqui va el length del data de canicas
             var htmlTbody = "";
             for (i = 0; i < cantidad; i++) {
@@ -274,7 +275,6 @@ $(document).ready(function () {
                     if (residuo > 0) {
                         aux2 = residuo;
                         for (j = 1; j <= aux2; j++) {
-                            alert(auxi)
                             htmlTbody += "<td>" + "<label>" + (auxi + 1) + "</label><img src='" + data[0].listaColeccion[auxi].ImgCanica + "'/></td>"
                             auxi += 1
                         }
@@ -285,7 +285,6 @@ $(document).ready(function () {
                     }
                     else {
                         for (k = 0; k < aux ; k++) {
-                            alert(auxi)
                             htmlTbody += "<td>" + "<label>" + (auxi + 1) + "</label><img src='" + data[0].listaColeccion[auxi].ImgCanica + "'/></td>"
                             auxi += 1
                         }
@@ -314,6 +313,8 @@ $(document).ready(function () {
     }
 
     function encabezadoPie() {
+        var a = this.getDate()
+        console.log(a)
         $("#lblFecha").text(getDate())
         var usuario = $("#lblUsuario").text()
         $("#lblRealizado").text(usuario)
