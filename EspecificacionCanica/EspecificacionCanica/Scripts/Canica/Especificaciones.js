@@ -100,6 +100,7 @@ $(document).ready(function () {
                     caballete(data)
                     etiquetaCanica(data)
                     display(data)
+                    encabezadoPie()
                 }
 
             },
@@ -169,6 +170,7 @@ $(document).ready(function () {
     }
 
     function caballete(data) {
+        $("#tbodyCaballete").closest('tr').remove()
         if (data[0].listaMezcla != null)
         {
             $("#etiquetaMezcla").removeAttr("hidden");
@@ -226,16 +228,11 @@ $(document).ready(function () {
             $("#tbodyCaballete").append(htmlTbody)
         }
         else
-            $("#etiquetaMezcla").attr("hidden", "hidden")
-
-
-
-
-        
-   
+            $("#etiquetaMezcla").attr("hidden", "hidden")   
     }
 
     function etiquetaCanica(data) {
+        $("#tbodyImagenesCanica").closest('tr').remove()
         if (data[0].listaColeccion != null) {
             $("#etiquetaCanica").removeAttr("hidden");
             $("#lblCodBarrasEtiquetaC").text(data[0].listaColeccion[0].CBEtiqueta)
@@ -264,20 +261,6 @@ $(document).ready(function () {
             var canica = "Conde";
             var aux = 2;
             var auxi = 0;
-
-            //htmlTbody += "<tr>"
-            //for (i = 0; i < 2; i++) {
-            //    htmlTbody += "<td>" + "<label>" + (i + 1) + "</label><img src='" + data[0].listaColeccion[i].ImgCanica + "'/></td>"
-            //}
-            //htmlTbody += "</tr>"
-
-
-            //htmlTbody += "<tr>"
-            //for (i = 2; i < 4; i++) {
-            //    htmlTbody += "<td>" + "<label>" + (i + 1) + "</label><img src='" + data[0].listaColeccion[i].ImgCanica + "'/></td>"
-            //}
-            //htmlTbody += "</tr>"
-
 
             for (i = 1; i <= dividido; i++) {
                 htmlTbody += "<tr>"
@@ -311,7 +294,6 @@ $(document).ready(function () {
                 }
 
                 htmlTbody += "</tr>"
-                
             }
 
             console.log(htmlTbody)
@@ -321,6 +303,21 @@ $(document).ready(function () {
             $("#etiquetaCanica").attr("hidden", "hidden")
             
         }
+    }
+
+    function bolsa(data) {
+
+    }
+
+    function caja(data) {
+
+    }
+
+    function encabezadoPie() {
+        $("#lblFecha").text(getDate())
+        var usuario = $("#lblUsuario").text()
+        $("#lblRealizado").text(usuario)
+        $("#lblAprobada").text() 
     }
 
 });
