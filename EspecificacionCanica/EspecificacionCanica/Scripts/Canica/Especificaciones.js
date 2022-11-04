@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     $("#InicioSesion").text("Cerrar Sesión")
-
+    alert($("#lblUsuario").text())
     $("#btnBuscar").click(function () {
         var valorC = $("#txtCliente").val();
         var object = { cliente: valorC }
@@ -100,7 +100,7 @@ $(document).ready(function () {
                     caballete(data)
                     etiquetaCanica(data)
                     display(data)
-                    //encabezadoPie()
+                    encabezadoPie()
                 }
 
             },
@@ -313,12 +313,11 @@ $(document).ready(function () {
     }
 
     function encabezadoPie() {
-        var a = this.getDate()
-        console.log(a)
-        $("#lblFecha").text(getDate())
+        //var a = this.getDate()
+        //console.log(a)
+        //$("#lblFecha").text(getDate())
         var usuario = $("#lblUsuario").text()
         $("#lblRealizado").text(usuario)
         $("#lblAprobada").text() 
     }
-
 });

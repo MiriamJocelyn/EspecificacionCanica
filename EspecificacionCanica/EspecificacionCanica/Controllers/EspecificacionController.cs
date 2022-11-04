@@ -27,7 +27,7 @@ namespace EspecificacionCanica.Controllers
                         if (url[url.Length - 1] == Session["token"].ToString())
                         {
                             Session["usuario"] = url[0] + " " + url[1];
-                            ViewData["Usuario"] = "HOLA " + Session["usuario"].ToString().ToUpper() + "!";
+                            ViewData["Usuario"] = Session["usuario"].ToString().ToUpper() ;
                         }
                         else
                             return RedirectToAction("Seguridad");
