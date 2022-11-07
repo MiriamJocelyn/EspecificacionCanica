@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     $("#InicioSesion").text("Cerrar Sesión")
-    alert($("#lblUsuario").text())
+    
     $("#btnBuscar").click(function () {
         var valorC = $("#txtCliente").val();
         var object = { cliente: valorC }
@@ -65,6 +65,8 @@ $(document).ready(function () {
                         text: itemdata.Codigo
                     }));
                 });
+
+
                 var select = $("#Clientes");
                 LimpiarDrop(select, "Seleccionar Cliente")
                 $("#txtCliente").val("")
