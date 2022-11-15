@@ -98,10 +98,10 @@ $(document).ready(function () {
                 if (data.length > 0) {
                     $("#Encabezado").removeAttr("hidden");
                     Encabezado(data)
-                    Bote(data)
-                    caballete(data)
-                    etiquetaCanica(data)
-                    display(data)
+                    //Bote(data)
+                    //caballete(data)
+                    //etiquetaCanica(data)
+                    //display(data)
                     encabezadoPie()
                 }
 
