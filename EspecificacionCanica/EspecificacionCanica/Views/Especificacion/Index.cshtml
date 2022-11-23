@@ -63,7 +63,7 @@
     </div>
 
 
-    <div id="Encabezado" hidden="hidden" style="margin-top:2%">
+    <div id="Encabezado" style="margin-top:2%" hidden="hidden">
       <div class="jumbotron jumbInicio">
         <div class="row">
           <div class="col-md-2" style="vertical-align: central !important">
@@ -136,6 +136,10 @@
                   <table class="tableGeneral">
                     <thead>
                       <tr>
+                        <th colspan="3"> Canica, Gemas o Figuras</th>
+                        <th colspan="4"> Otros Insumos</th>
+                      </tr>
+                      <tr>
                         <th>@Html.DisplayNameFor(model => model.codSAPP)</th>
                         <th>@Html.DisplayNameFor(model => model.NomProduccion)</th>
                         <th>@Html.DisplayNameFor(model => model.MedidaEmp)</th>
@@ -145,6 +149,7 @@
                         <th>@Html.DisplayNameFor(model => model.cantidaCajaM)</th>
                       </tr>
                     </thead>
+                    <tbody id="tbodyInsumo"></tbody>
                   </table>
                 </div>
               </div>
@@ -164,21 +169,21 @@
           <div id="collapseEmpInicial" class="collapse" aria-labelledby="headingEmpInicial" data-parent="#disEmpInicial">
             <div class="card-body">
               @*<div class="row">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-8">
-                  <table class="tableGeneral">
-                    <thead>
-                      <tr>
-                        <th> @Html.DisplayNameFor(model => model.Descripcion)</th>
-                        <th> @Html.DisplayNameFor(model => model.CodigoSAP)</th>
-                        <th> @Html.DisplayNameFor(model => model.Cantidad)</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tbodyEICodigos"></tbody>
-                  </table>
-                </div>
-              </div>*@
+                  <div class="col-md-2">
+                  </div>
+                  <div class="col-md-8">
+                    <table class="tableGeneral">
+                      <thead>
+                        <tr>
+                          <th> @Html.DisplayNameFor(model => model.Descripcion)</th>
+                          <th> @Html.DisplayNameFor(model => model.CodigoSAP)</th>
+                          <th> @Html.DisplayNameFor(model => model.Cantidad)</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbodyEICodigos"></tbody>
+                    </table>
+                  </div>
+                </div>*@
               <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
@@ -201,7 +206,7 @@
                   <table class="tableGeneral">
                     <thead>
                       <tr>
-                        <th> @Html.DisplayNameFor(model => model.Imagenes)</th>
+                        <th id="thImgEI"> @Html.DisplayNameFor(model => model.Imagenes)</th>
                       </tr>
                     </thead>
                     <tbody id="tbodyImgEI"></tbody>
@@ -214,10 +219,16 @@
                       <table class="tableGeneral">
                         <thead>
                           <tr>
-                            <th> @Html.DisplayNameFor(model => model.CodBarras)</th>
+                            <th colspan="2"> @Html.DisplayNameFor(model => model.CodBarras)</th>
                           </tr>
                         </thead>
-                        <tbody id="tbodyCodBarrasEI"></tbody>
+                        <tbody>
+                          <tr>
+                            <td id="NomEmpInicial"></td>
+                            <td id="codBarrasEI"></td>
+                          </tr>
+
+                        </tbody>
                       </table>
                     </div>
                   </div>
@@ -233,10 +244,10 @@
                             <th> @Html.DisplayNameFor(model => model.NomProduccion)</th>
                             <th> @Html.DisplayNameFor(model => model.NomCliente)</th>
                             <th> @Html.DisplayNameFor(model => model.MedidaEmp)</th>
-                            <th> @Html.DisplayNameFor(model => model.CodigoSAP)</th>
                             <th> @Html.DisplayNameFor(model => model.Cantidad)</th>
                           </tr>
                         </thead>
+                        <tbody id="tbodyProductosEI"></tbody>
                       </table>
                     </div>
                   </div>
@@ -275,21 +286,21 @@
           <div id="collapseEmpSecundario" class="collapse" aria-labelledby="headingEmpSecundario" data-parent="#disEmpSecundario">
             <div class="card-body">
               @*<div class="row">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-8">
-                  <table class="tableGeneral">
-                    <thead>
-                      <tr>
-                        <th> @Html.DisplayNameFor(model => model.Descripcion)</th>
-                        <th> @Html.DisplayNameFor(model => model.CodigoSAP)</th>
-                        <th> @Html.DisplayNameFor(model => model.Cantidad)</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tbodyESCodigos"></tbody>
-                  </table>
-                </div>
-              </div>*@
+                  <div class="col-md-2">
+                  </div>
+                  <div class="col-md-8">
+                    <table class="tableGeneral">
+                      <thead>
+                        <tr>
+                          <th> @Html.DisplayNameFor(model => model.Descripcion)</th>
+                          <th> @Html.DisplayNameFor(model => model.CodigoSAP)</th>
+                          <th> @Html.DisplayNameFor(model => model.Cantidad)</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbodyESCodigos"></tbody>
+                    </table>
+                  </div>
+                </div>*@
 
               <div class="row">
                 <div class="col-md-1"></div>
@@ -314,10 +325,16 @@
                   <table class="tableGeneral">
                     <thead>
                       <tr>
-                        <th> @Html.DisplayNameFor(model => model.Imagenes)</th>
+                        <th colspan="2"> @Html.DisplayNameFor(model => model.Imagenes)</th>
                       </tr>
                     </thead>
-                    <tbody id="tbodyImgES"></tbody>
+                    <tbody id="tbodyImgES">
+                      <tr>
+                        <td><img id="Img1ES" style="width:150px!important" /></td>
+                        <td><img id="Img2ES" style="width:150px!important" /></td>
+                      </tr>
+
+                    </tbody>
                   </table>
                 </div>
                 <div class="col-md-7">
@@ -327,10 +344,15 @@
                       <table class="tableGeneral">
                         <thead>
                           <tr>
-                            <th> @Html.DisplayNameFor(model => model.CodBarras)</th>
+                            <th colspan="2"> @Html.DisplayNameFor(model => model.CodBarras)</th>
                           </tr>
                         </thead>
-                        <tbody id="tbodyCodBarrasES"></tbody>
+                        <tbody>
+                          <tr>
+                            <td id="NomEmpSecu"></td>
+                            <td id="codBarrasES"></td>
+                          </tr>
+                        </tbody>
                       </table>
                     </div>
                   </div>
@@ -349,19 +371,19 @@
                             <td></td>
                           </tr>
                           <tr>
-                            <td></td>
+                            <td class="tituloTa">REF</td>
                             <td class="tituloTa">@Html.DisplayNameFor(model => model.NumArticulo)</td>
-                            <td></td>
+                            <td id="tdREFES"></td>
                           </tr>
                           <tr>
-                            <td></td>
+                            <td class="tituloTa">Designation</td>
                             <td class="tituloTa">@Html.DisplayNameFor(model => model.NombreCliente)</td>
-                            <td></td>
+                            <td id="tdDesignationES"></td>
                           </tr>
                           <tr>
-                            <td></td>
+                            <td class="tituloTa">numero, barcode</td>
                             <td class="tituloTa">@Html.DisplayNameFor(model => model.CodBarras)</td>
-                            <td></td>
+                            <td id="tdNumeroES"></td>
                           </tr>
                         </tbody>
                       </table>
@@ -379,34 +401,34 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td id="infoAdicionalEI"></td>
+                        <td id="infoAdicionalES"></td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-                <div class="col-md-7">
-                  <table class="tableBote">
-                    <thead>
-                      <tr>
-                        <th class="tituloTa" colspan="2" style="text-align:center!important"> @Html.DisplayNameFor(model => model.datosAdherible)</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.NumArticulo)</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.NombreCliente)</td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td class="tituloTa">@Html.DisplayNameFor(model => model.CodBarras)</td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                @*<div class="col-md-7">
+                    <table class="tableBote">
+                      <thead>
+                        <tr>
+                          <th class="tituloTa" colspan="2" style="text-align:center!important"> @Html.DisplayNameFor(model => model.datosAdherible)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="tituloTa">@Html.DisplayNameFor(model => model.NumArticulo)</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td class="tituloTa">@Html.DisplayNameFor(model => model.NombreCliente)</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td class="tituloTa">@Html.DisplayNameFor(model => model.CodBarras)</td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>*@
 
               </div>
 
@@ -427,21 +449,21 @@
           <div id="collapseEmpFinal" class="collapse" aria-labelledby="headingEmpFinal" data-parent="#disEmpFinal">
             <div class="card-body">
               @*<div class="row">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-8">
-                  <table class="tableGeneral">
-                    <thead>
-                      <tr>
-                        <th> @Html.DisplayNameFor(model => model.Descripcion)</th>
-                        <th> @Html.DisplayNameFor(model => model.CodigoSAP)</th>
-                        <th> @Html.DisplayNameFor(model => model.Cantidad)</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tbodyEFCodigos"></tbody>
-                  </table>
-                </div>
-              </div>*@
+                  <div class="col-md-2">
+                  </div>
+                  <div class="col-md-8">
+                    <table class="tableGeneral">
+                      <thead>
+                        <tr>
+                          <th> @Html.DisplayNameFor(model => model.Descripcion)</th>
+                          <th> @Html.DisplayNameFor(model => model.CodigoSAP)</th>
+                          <th> @Html.DisplayNameFor(model => model.Cantidad)</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbodyEFCodigos"></tbody>
+                    </table>
+                  </div>
+                </div>*@
               <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-10">
@@ -465,10 +487,18 @@
                   <table class="tableGeneral">
                     <thead>
                       <tr>
-                        <th> @Html.DisplayNameFor(model => model.Imagenes)</th>
+                        <th colspan="2"> @Html.DisplayNameFor(model => model.Imagenes)</th>
                       </tr>
                     </thead>
-                    <tbody id="tbodyImgEI"></tbody>
+                    <tbody id="tbodyImgEI">
+                      <tr>
+                        <td><img id="ImgCorto" />
+                        </td>
+                        <td>
+                          <img id="ImgLargo" />
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
                 </div>
                 <div class="col-md-7">
@@ -478,25 +508,30 @@
                       <table class="tableGeneral">
                         <thead>
                           <tr>
-                            <th> @Html.DisplayNameFor(model => model.CodBarras)</th>
+                            <th colspan="2"> @Html.DisplayNameFor(model => model.CodBarras)</th>
                           </tr>
                         </thead>
-                        <tbody id="tbodyCodBarrasEI"></tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <table class="tableGeneral">
-                        <thead>
+                        <tbody id="tbodyCodBarrasEI">
                           <tr>
-                            <th colspan="3"> @Html.DisplayNameFor(model => model.datosAdherible)</th>
+                            <td id="NomEmpFinal"></td>
+                            <td id="codBarrasEF"></td>
                           </tr>
-                        </thead>
-                        <tbody></tbody>
+                        </tbody>
                       </table>
                     </div>
                   </div>
+                  @*<div class="row">
+                      <div class="col-md-12">
+                        <table class="tableGeneral">
+                          <thead>
+                            <tr>
+                              <th colspan="3"> @Html.DisplayNameFor(model => model.datosAdherible)</th>
+                            </tr>
+                          </thead>
+                          <tbody></tbody>
+                        </table>
+                      </div>
+                    </div>*@
                 </div>
               </div>
               <div class="row">
@@ -509,7 +544,7 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td id="infoAdicionalEI"></td>
+                        <td id="infoAdicionalEF"></td>
                       </tr>
                     </tbody>
                   </table>
@@ -525,7 +560,16 @@
                         <th> @Html.DisplayNameFor(model => model.con)</th>
                       </tr>
                     </thead>
-                    <tbody id="tbodyArmado"></tbody>
+                    <tbody id="tbodyArmado">
+                      <tr>
+                        <td>Armado </td>
+                        <td id="tdArmado"></td>
+                      </tr>
+                      <tr>
+                        <td>Cerrado</td>
+                        <td id="tdCerrado"></td>
+                      </tr>
+                    </tbody>
                   </table>
                 </div>
               </div>
@@ -536,7 +580,7 @@
       </div>
 
 
-      <div class="accordion" id="etiquetaBote"  hidden="hidden">
+      <div class="accordion" id="etiquetaBote" hidden="hidden">
         <div class="card">
           <div class="card-header" id="headingOne">
             <h5 class="mb-0">
@@ -626,7 +670,7 @@
         </div>
       </div>
 
-      <div class="accordion" id="etiquetaCanica"  hidden="hidden">
+      <div class="accordion" id="etiquetaCanica" hidden="hidden">
         <div class="card">
           <div class="card-header" id="headingTwo">
             <h5 class="mb-0">
@@ -697,7 +741,7 @@
         </div>
       </div>
 
-      <div id="etiquetaMezcla" class="accordion"  hidden="hidden">
+      <div id="etiquetaMezcla" class="accordion" hidden="hidden">
         <div class="card">
           <div id="headingThree" class="card-header">
             <h5 class="mb-0">
@@ -746,7 +790,7 @@
       </div>
 
 
-      <div id="display" class="accordion"  hidden="hidden">
+      <div id="display" class="accordion" hidden="hidden">
         <div class="card">
           <div id="headingFour" class="card-header">
             <h5 class="mb-0">
@@ -793,7 +837,7 @@
         </div>
       </div>
 
-      <div id="caja" class="accordion"  hidden="hidden">
+      <div id="caja" class="accordion" hidden="hidden">
         <div class="card">
           <div id="headingFive" class="card-header">
             <h5 class="mb-0">
@@ -854,7 +898,7 @@
         </div>
       </div>
 
-      <div id="bolsa" class="accordion"  hidden="hidden">
+      <div id="bolsa" class="accordion" hidden="hidden">
         <div class="card">
           <div id="headingSix" class="card-header">
             <h5 class="mb-0">

@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
     $("#InicioSesion").text("Cerrar Sesión")
-    
+
     $("#btnBuscar").click(function () {
         var valorC = $("#txtCliente").val();
         var object = { cliente: valorC }
@@ -98,6 +98,10 @@ $(document).ready(function () {
                 if (data.length > 0) {
                     $("#Encabezado").removeAttr("hidden");
                     Encabezado(data)
+                    insumos(data)
+                    empaqueInicial(data)
+                    empaqueSecundario(data)
+                    empaqueFinal(data)
                     //Bote(data)
                     //caballete(data)
                     //etiquetaCanica(data)
@@ -173,8 +177,7 @@ $(document).ready(function () {
 
     function caballete(data) {
         $("#tbodyCaballete").closest('tr').remove()
-        if (data[0].listaMezcla != null)
-        {
+        if (data[0].listaMezcla != null) {
             $("#etiquetaMezcla").removeAttr("hidden");
             $("#tbodyCaballete").empty()
             var cantidadModelos = data[0].listaMezcla.length; //aqui agregar el count del data lista canicas.
@@ -192,13 +195,13 @@ $(document).ready(function () {
             //var canica = data[0].listaMezcla.Modelo;
             var aux = 3;
 
-            var auxI=0
+            var auxI = 0
             for (i = 1; i <= dividido; i++) {
                 htmlTbody += "<tr>"
                 if (i != dividido) {
                     for (j = 1; j <= aux; j++) {
                         htmlTbody += "<td>" + data[0].listaMezcla[auxI].Modelo + "</td>"
-                        auxI+=1
+                        auxI += 1
                     }
                 }
                 else {
@@ -230,7 +233,7 @@ $(document).ready(function () {
             $("#tbodyCaballete").append(htmlTbody)
         }
         else
-            $("#etiquetaMezcla").attr("hidden", "hidden")   
+            $("#etiquetaMezcla").attr("hidden", "hidden")
     }
 
     function etiquetaCanica(data) {
@@ -269,8 +272,8 @@ $(document).ready(function () {
                 htmlTbody += "<tr>"
                 if (i != dividido) {
                     for (j = 1; j <= aux; j++) {
-                        htmlTbody += "<td>" + "<label>" + (auxi+1) + "</label><img src='" + data[0].listaColeccion[auxi].ImgCanica + "'/></td>"
-                        auxi+=1
+                        htmlTbody += "<td>" + "<label>" + (auxi + 1) + "</label><img src='" + data[0].listaColeccion[auxi].ImgCanica + "'/></td>"
+                        auxi += 1
                     }
                 }
                 else {
@@ -302,24 +305,170 @@ $(document).ready(function () {
         }
         else {
             $("#etiquetaCanica").attr("hidden", "hidden")
-            
+
         }
     }
 
-    function bolsa(data) {
+    function insumos(data) {
+        var htmlTbody = "";
+        var cantidadInsumo = data[0].listaInsumos.length;
+        var cantidadOtro = data[0].listaOtrosInsumos.length;
+        var cantidad = 0;
+
+        if (cantidadInsumo > cantidadOtro)
+            cantidad = cantidadInsumo
+        else
+            cantidad = cantidadOtro
+
+
+        for (i = 0; i < cantidad; i++) {
+
+            if (cantidadInsumo == cantidadOtro) {
+                htmlTbody += "<tr>"
+                htmlTbody += "<td>" + data[0].listaInsumos[i].CodigoProducto + "</td>"
+                htmlTbody += "<td>" + data[0].listaInsumos[i].ItemName + "</td>"
+                htmlTbody += "<td>" + data[0].listaInsumos[i].Medida + "</td>"
+                htmlTbody += "<td>" + data[0].listaOtrosInsumos[i].ItemName + "</td>"
+                htmlTbody += "<td>" + data[0].listaOtrosInsumos[i].CodigoProducto + "</td>"
+                htmlTbody += "<td>" + "</td>"
+                htmlTbody += "<td>" + data[0].listaOtrosInsumos[i].Cantidad + "</td>"
+                htmlTbody += "</tr>"
+            }
+            else if (cantidadInsumo < cantidadOtro) {
+                htmlTbody += "<tr>"
+
+                if (i < cantidadInsumo) {
+                    htmlTbody += "<td>" + data[0].listaInsumos[i].CodigoProducto + "</td>"
+                    htmlTbody += "<td>" + data[0].listaInsumos[i].ItemName + "</td>"
+                    htmlTbody += "<td>" + data[0].listaInsumos[i].Medida + "</td>"
+                }
+                else {
+                    htmlTbody += "<td>" + "</td>"
+                    htmlTbody += "<td>" + "</td>"
+                    htmlTbody += "<td>" + "</td>"
+                }
+                htmlTbody += "<td>" + data[0].listaOtrosInsumos[i].ItemName + "</td>"
+                htmlTbody += "<td>" + data[0].listaOtrosInsumos[i].CodigoProducto + "</td>"
+                htmlTbody += "<td>" + "</td>"
+                htmlTbody += "<td>" + data[0].listaOtrosInsumos[i].Cantidad + "</td>"
+
+                htmlTbody += "</tr>"
+            }
+            else if (cantidadInsumo > cantidadOtro) {
+                htmlTbody += "<tr>"
+
+                htmlTbody += "<td>" + data[0].listaInsumos[i].CodigoProducto + "</td>"
+                htmlTbody += "<td>" + data[0].listaInsumos[i].ItemName + "</td>"
+                htmlTbody += "<td>" + data[0].listaInsumos[i].Medida + "</td>"
+
+                if (i < cantidadOtro) {
+                    htmlTbody += "<td>" + data[0].listaOtrosInsumos[i].ItemName + "</td>"
+                    htmlTbody += "<td>" + data[0].listaOtrosInsumos[i].CodigoProducto + "</td>"
+                    htmlTbody += "<td>" + "</td>"
+                    htmlTbody += "<td>" + data[0].listaOtrosInsumos[i].Cantidad + "</td>"
+                }
+                else {
+                    htmlTbody += "<td>" + "</td>"
+                    htmlTbody += "<td>" + "</td>"
+                    htmlTbody += "<td>" + "</td>"
+                    htmlTbody += "<td>" + "</td>"
+                }
+
+                htmlTbody += "</tr>"
+            }
+
+        }
+        $("#tbodyInsumo").append(htmlTbody)
+    }
+
+    function empaqueInicial(data) {
+        $("#InsEmpInicial").text(data[0].listaEmpaqueInicial[0].InstEmpaque)
+        $("#codBarrasEI").text(data[0].listaEmpaqueInicial[0].CodBarras)
+        $("#NomEmpInicial").text(data[0].listaEmpaqueInicial[0].NomEmpInicial)
+        $("#infoAdicionalEI").text(data[0].listaEmpaqueInicial[0].InfAdicional)
+        productosEI(data)
+        imgsEI(data)
+
 
     }
 
-    function caja(data) {
+    function productosEI(data) {
+        var htmlTbody = "";
+        var cantidad = data[0].listaEmpaqueInicial.length;
+        for (i = 0; i < cantidad; i++) {
+            htmlTbody += "<tr>"
+            htmlTbody += "<td>" + data[0].listaEmpaqueInicial[i].CodProd + "</td>"
+            htmlTbody += "<td>" + data[0].listaEmpaqueInicial[i].NomProd + "</td>"
+            htmlTbody += "<td>" + data[0].listaEmpaqueInicial[i].NombCli + "</td>"
+            htmlTbody += "<td>" + data[0].listaEmpaqueInicial[i].Medida + "</td>"
+            htmlTbody += "<td>" + data[0].listaEmpaqueInicial[i].Cantidad + "</td>"
+            htmlTbody += "</tr>"
+        }
+        $("#tbodyProductosEI").append(htmlTbody)
+    }
+
+    function imgsEI(data) {
+        var htmlTbody = "";
+        var cantidad = data[0].listaEmpaqueInicial.length
+        $("#thImgEI").attr('colspan', cantidad);
+        htmlTbody += "<tr>"
+        for (i = 0; i < cantidad; i++) {
+            if (data[0].listaEmpaqueInicial[i].ImgEmpaque != "")
+                htmlTbody += "<td ><img style='width:80px!important'  src='" + data[0].listaEmpaqueInicial[i].ImgEmpaque + "'/></td>"
+        }
+        htmlTbody += "</tr>"
+
+        htmlTbody += "<tr>"
+        for (i = 0; i < cantidad; i++) {
+            if (data[0].listaEmpaqueInicial[i].ImgCanica != "")
+                htmlTbody += "<td><img  style='width:80px!important' src='" + data[0].listaEmpaqueInicial[i].ImgCanica + "'/></td>"
+        }
+        htmlTbody += "</tr>"
+
+        $("#tbodyImgEI").append(htmlTbody)
+    }
+
+    function empaqueSecundario(data)
+    {
+        $("#InsEmpSecundario").text(data[0].listaEmpaqueSecundario[0].InstruccionEmp)
+        $("#NomEmpSecu").text(data[0].listaEmpaqueSecundario[0].DesCliente)
+        $("#codBarrasES").text(data[0].listaEmpaqueSecundario[0].CodBarras)
+        $("#tdREFES").text(data[0].listaEmpaqueSecundario[0].REF)
+        $("#tdDesignationES").text(data[0].listaEmpaqueSecundario[0].Designation)
+        $("#tdNumeroES").text(data[0].listaEmpaqueSecundario[0].BarCode)
+        $("#infoAdicionalES").text(data[0].listaEmpaqueSecundario[0].InfAdicional)
+        imgsES(data)
 
     }
 
+    function imgsES(data)
+    {
+        $("#Img1ES").attr("src", data[0].listaEmpaqueSecundario[0].Img1)
+        $("#Img2ES").attr("src", data[0].listaEmpaqueSecundario[0].Img2)
+        
+    }
+
+    function empaqueFinal(data)
+    {
+        $("#InsEmpFinal").text(data[0].listaEmpaqueFinal[0].InstEmpaque)
+        $("#codBarrasEF").text(data[0].listaEmpaqueFinal[0].CodBarras)
+        $("#NomEmpFinal").text(data[0].listaEmpaqueFinal[0].NomEmpFinal)
+        $("#infoAdicionalEF").text(data[0].listaEmpaqueFinal[0].InfAdicional)
+        $("#tdArmado").text(data[0].listaEmpaqueFinal[0].Armado)
+        $("#tdCerrado").text(data[0].listaEmpaqueFinal[0].Cerrado)
+        imgsEF(data)
+    }
+    function imgsEF(data) {
+        $("#ImgLargo").attr("src", data[0].listaEmpaqueFinal[0].ImgLargo)
+        $("#ImgCorto").attr("src", data[0].listaEmpaqueFinal[0].ImgCorto)
+
+    }
     function encabezadoPie() {
         //var a = this.getDate()
         //console.log(a)
         //$("#lblFecha").text(getDate())
         var usuario = $("#lblUsuario").text()
         $("#lblRealizado").text(usuario)
-        $("#lblAprobada").text() 
+        $("#lblAprobada").text()
     }
 });

@@ -70,7 +70,7 @@ namespace EspecificacionCanica.Models
         [DisplayName("Con")]
         public string con { get; set; }
 
-        [DisplayName("Código SAP del producto")]
+        [DisplayName("Código SAP del producto o Código Interno")]
         public string codSAPP { get; set; }
 
         [DisplayName("Código SAP del Insumo")]
