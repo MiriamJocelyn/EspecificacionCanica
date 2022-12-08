@@ -116,6 +116,18 @@ textarea {
         text-align:center!important;    
 
     }
+
+.tableEmbarque{
+    border: 1px solid #395095 !important;
+    width: 95% !important;
+}
+
+.tableEmbarque tbody tr td {
+        border: 1px solid  #395095 !important;
+        width: 50% !important;
+        text-align:left!important;
+
+    }
 .tituloTa {
     color:white!important;
     background-color: #8AA5D6!important;

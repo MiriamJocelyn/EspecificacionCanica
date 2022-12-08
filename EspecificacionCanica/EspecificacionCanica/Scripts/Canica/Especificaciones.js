@@ -102,6 +102,7 @@ $(document).ready(function () {
                     empaqueInicial(data)
                     empaqueSecundario(data)
                     empaqueFinal(data)
+                    embarque(data)
                     //Bote(data)
                     //caballete(data)
                     //etiquetaCanica(data)
@@ -428,8 +429,7 @@ $(document).ready(function () {
         $("#tbodyImgEI").append(htmlTbody)
     }
 
-    function empaqueSecundario(data)
-    {
+    function empaqueSecundario(data) {
         $("#InsEmpSecundario").text(data[0].listaEmpaqueSecundario[0].InstruccionEmp)
         $("#NomEmpSecu").text(data[0].listaEmpaqueSecundario[0].DesCliente)
         $("#codBarrasES").text(data[0].listaEmpaqueSecundario[0].CodBarras)
@@ -441,15 +441,13 @@ $(document).ready(function () {
 
     }
 
-    function imgsES(data)
-    {
+    function imgsES(data) {
         $("#Img1ES").attr("src", data[0].listaEmpaqueSecundario[0].Img1)
         $("#Img2ES").attr("src", data[0].listaEmpaqueSecundario[0].Img2)
-        
+
     }
 
-    function empaqueFinal(data)
-    {
+    function empaqueFinal(data) {
         $("#InsEmpFinal").text(data[0].listaEmpaqueFinal[0].InstEmpaque)
         $("#codBarrasEF").text(data[0].listaEmpaqueFinal[0].CodBarras)
         $("#NomEmpFinal").text(data[0].listaEmpaqueFinal[0].NomEmpFinal)
@@ -470,5 +468,18 @@ $(document).ready(function () {
         var usuario = $("#lblUsuario").text()
         $("#lblRealizado").text(usuario)
         $("#lblAprobada").text()
+
+    }
+
+    function embarque(data) {
+        var htmlBody = ""
+        for (i = 0; i < data[0].listaEmbarque.length; i++) {
+            htmlBody += "<tr>"
+            htmlBody += "<td>" +(i+1)+". "+ data[0].listaEmbarque[i].Informacion + "</td>"
+            htmlBody += "</tr>"
+
+        }
+        $("#tableEmbarque").append(htmlBody)
+        
     }
 });
